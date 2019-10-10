@@ -1,0 +1,117 @@
+.mediaViewInfo {
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-enable-scale-up: true;
+	--web-scale-on-resize: true;
+	--web-center-horizontally: true;
+	--web-center-vertically: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Web_1920___1;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+#Web_1920___1 {
+	position: absolute;
+	box-sizing: border-box;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	top: 50%;
+	background: #E5E5E5;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-enable-scale-up: true;
+	--web-scale-on-resize: true;
+	--web-center-horizontally: true;
+	--web-center-vertically: true;
+	--web-enable-deep-linking: true;
+}
+.Rectangle_1 {
+	position: absolute;
+	overflow: visible;
+	width: 866px;
+	height: 496px;
+	left: 528px;
+	top: 293px;
+}
+#Blog_Header {
+	position: absolute;
+	left: 829px;
+	top: 334px;
+	overflow: visible;
+	width: 263px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	color: rgba(112,112,112,1);
+}
+#Blog_description___explanation {
+	position: absolute;
+	left: 824px;
+	top: 447px;
+	overflow: visible;
+	width: 274px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 213px;
+	height: 63px;
+	left: 654px;
+	top: 633px;
+}
+.Rectangle_3 {
+	position: absolute;
+	overflow: visible;
+	width: 213px;
+	height: 63px;
+	left: 1066px;
+	top: 633px;
+}
+#Sign_Up_Button {
+	position: absolute;
+	left: 1108px;
+	top: 648px;
+	overflow: visible;
+	width: 135px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#Login_Button {
+	position: absolute;
+	left: 691px;
+	top: 648px;
+	overflow: visible;
+	width: 115px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
