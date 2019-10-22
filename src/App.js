@@ -5,6 +5,7 @@ import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js'
 import Dashboard from './Dashboard.js'
 
+
 function App() {
   return (
     <main className='App'>
@@ -13,7 +14,7 @@ function App() {
         <Route path={'/login'} component={LoginForm} />
         <Route path={'/sign-up'} component={SignUpForm} />
         <Route path={'/dashboard'} component={Dashboard} />
-        </BrowserRouter>
+      </BrowserRouter>
     </main>
   );
 }

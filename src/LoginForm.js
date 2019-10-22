@@ -1,5 +1,6 @@
 import React from 'react'
 import './LoginForm.css'
+import { Link } from 'react-router-dom';
 
 export default class LoginForm extends React.Component {
     render() {
@@ -14,9 +15,9 @@ export default class LoginForm extends React.Component {
                     <br />
                     </div>
                     <div>
-                    <button>Submit</button>
-                    <button>Forgot Password</button>
-                    <button>Sign Up</button>
+                    <Link to="/login"><button>Submit</button></Link>
+                    <Link to="/forgot-password"><button>Forgot Password</button></Link>
+                    <Link to="/sign-up"><button>Sign Up</button></Link>
                     </div>
                 </div>
             </section>

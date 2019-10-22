@@ -1,7 +1,8 @@
 import React from 'react'
-import './ArticleList.css'
+import ArticleView from "./ArticleView.js";
+//import './ArticleList.css'
 
-export default class ArticleList extends Component {
+export default class ArticleList extends React.Component {
 
 
     render() {

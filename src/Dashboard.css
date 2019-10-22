@@ -1,0 +1,38 @@
+* {
+    height: 100%;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+        align-items: center;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+}
+
+h3{
+    height: auto;
+}
+
+#Header {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+top:0;
+border: 2px solid black;
+}
+
+h1{
+    height: auto;
+}
+
+#navbar {
+    width: 100%;
+    height: 20px;
+    position: sticky;
+    border: 2px solid black;
+}

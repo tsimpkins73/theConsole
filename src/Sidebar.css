@@ -1,0 +1,42 @@
+* {
+    height: 100%;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+        align-items: center;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+}
+
+h3{
+    height: auto;
+}
+
+#sidebar {
+    position: absolute;
+    width: 39.5%;
+    height: auto;
+    right: 0;
+    border: 1px solid black;
+    margin: 0;
+}
+
+#searchDiv, #favoritesDiv, #categoriesDiv, #tagsDiv {
+    width: 100%;
+    height: 180px;
+    border: 1px solid black;
+    margin: 0;
+    padding: 10px;
+
+}
+
+input{
+    height: auto;
+    width: auto;
+}

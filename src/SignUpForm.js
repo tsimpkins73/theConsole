@@ -1,5 +1,6 @@
 import React from 'react'
 import './SignUpForm.css'
+import { Link } from 'react-router-dom';
 
 export default class SignUpForm extends React.Component {
     render() {
@@ -14,9 +15,8 @@ export default class SignUpForm extends React.Component {
                     <input type="text" /> 
                     <label for="Password">Password</label>
                     <input type="text" /> 
-                    <button>Submit Button</button>
-                    <button>Forgot Password</button>
-                    <button>Login</button>
+                    <Link to="dashboard"><button>Submit</button></Link>
+          <Link to="/login"><button>Login</button></Link>
                 </ div>
             </ section>
         );

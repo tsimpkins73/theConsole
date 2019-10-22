@@ -1,25 +1,27 @@
 import React from 'react'
-import './ArticleView.css'
+//import './ArticleView.css'
 
-export default class ArticleView extends Component {
+export default class ArticleView extends React.Component {
 
 
     render() {
         return (
-            <section class="Article">
-                <section id="ArticleImageContainer">
-                    <img class="ArticleImage"
-                        src="{Article.imgURL}">
-      </section>
-                    <section id="ArticleTextContainer">
-                        <h2>{Article.title}</h2>
-                        <p>{Article.text}
-         </p>
-
-                    </section>
-                    <button>Favorite</button>
-                    <button>Comment</button>
-                </section>
+            <section id="article-Full">
+        <div id="articleImage"></div>
+        <div id="articleText-Full">
+          <h3>Article Headline</h3>
+          <p>Article Text</p>
+        </div>
+        <div id="articleButtons">
+            <div class="button">Favorite Button</div>
+<div class="button">Comment Button</div>
+        </div>
+        <div id="articleComments">
+            <div id="articleComment">Comment</div>
+            <div id="articleComment">Comment</div>
+            <div id="articleComment">Comment</div>
+            </div>
+            </section>
                 );
             }
 }
