@@ -4,6 +4,7 @@ import LandingPage from './LandingPage.js'
 import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js'
 import Dashboard from './Dashboard.js'
+import ForgotPasswordForm from './ForgotPasswordForm.js'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route exact path={'/'} component={LandingPage} />
         <Route path={'/login'} component={LoginForm} />
         <Route path={'/sign-up'} component={SignUpForm} />
+        <Route path={'/forgot-password'} component={ForgotPasswordForm} />
         <Route path={'/dashboard'} component={Dashboard} />
       </BrowserRouter>
     </main>

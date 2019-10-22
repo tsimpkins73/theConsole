@@ -1,5 +1,6 @@
 import React from 'react'
-//import './ArticleView.css'
+import CommentsList from './CommentsList.js'
+import './ArticleView.css'
 
 export default class ArticleView extends React.Component {
 
@@ -8,19 +9,15 @@ export default class ArticleView extends React.Component {
         return (
             <section id="article-Full">
         <div id="articleImage"></div>
-        <div id="articleText-Full">
-          <h3>Article Headline</h3>
-          <p>Article Text</p>
+        <div id="articleText">
+          <h3 id="articleText">Article Headline</h3>
+          <p id="articleText">Article Text</p>
         </div>
         <div id="articleButtons">
             <div class="button">Favorite Button</div>
 <div class="button">Comment Button</div>
         </div>
-        <div id="articleComments">
-            <div id="articleComment">Comment</div>
-            <div id="articleComment">Comment</div>
-            <div id="articleComment">Comment</div>
-            </div>
+        <CommentsList />
             </section>
                 );
             }
