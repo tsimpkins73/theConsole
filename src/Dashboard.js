@@ -1,6 +1,8 @@
 import React from 'react'
+import { BrowserRouter, Route } from "react-router-dom";
 import Sidebar from './Sidebar.js'
 import ArticleList from './ArticleList.js'
+import ArticleView from './ArticleView.js'
 import './Dashboard.css'
 
 export default class Dashboard extends React.Component {
@@ -9,7 +11,10 @@ export default class Dashboard extends React.Component {
             <section id="Header">Header</section>
             <navbar id="navbar">navbar</navbar>
            <Sidebar />
-           <ArticleList />
+           <BrowserRouter>
+        <Route exact path={'/dashboard'} component={ArticleList} />
+        <Route path={'/dashboard/article'} component={ArticleView} />
+              </BrowserRouter>
             </section>
         );
     }
