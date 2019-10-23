@@ -14,9 +14,26 @@ body {
     text-align: center;
 }
 
-#dashboardContainer{
-    width: 100%;
+#dashboardContainer, main{
+    width: 100vw;
     height: 100%;
+    display: inline-block;
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    display: block;
+}
+
+#ArticleList{
+    position: absolute;
+    width: 60%;
+    height: auto;
+    left: 0;
+    margin: 0;
+   
 }
 
 h3{

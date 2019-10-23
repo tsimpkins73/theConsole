@@ -5,12 +5,12 @@ import './Dashboard.css'
 
 export default class Dashboard extends React.Component {
     render() {
-        return (<div id="dashboardContainer">
+        return (<section id="dashboardContainer">
             <section id="Header">Header</section>
             <navbar id="navbar">navbar</navbar>
            <Sidebar />
            <ArticleList />
-            </div>
+            </section>
         );
     }
 }
