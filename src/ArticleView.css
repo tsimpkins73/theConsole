@@ -15,7 +15,7 @@
     display: inline-block;
 }
 
-#ArticleList{
+#article-full-container{
     position: absolute;
     width: 60%;
     height: auto;
