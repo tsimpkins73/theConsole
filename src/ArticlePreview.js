@@ -1,5 +1,6 @@
 import React from 'react'
 import './ArticleView.css'
+import { Link } from 'react-router-dom';
 
 export default class ArticlePreview extends React.Component {
 
@@ -11,7 +12,7 @@ export default class ArticlePreview extends React.Component {
         <div id="articleText">
           <h3 id="articleText">Article Headline</h3>
           <p id="articleText">Article Text</p>
-          <button>View Full Article</button>
+          <Link to="/dashboard/article"><button>View Full Article</button></Link>
         </div>
             </section>
                 );

@@ -9,7 +9,7 @@ export default class Dashboard extends React.Component {
     render() {
         return (<section id="dashboardContainer">
             <section id="Header">Header</section>
-            <navbar id="navbar">navbar</navbar>
+            <section id="navbar"></section>
            <Sidebar />
            <BrowserRouter>
         <Route exact path={'/dashboard'} component={ArticleList} />

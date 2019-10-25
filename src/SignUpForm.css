@@ -1,7 +1,3 @@
-*{
-    height:100%;
-}
-
 body{
     position: relative;
     margin-left: auto;
@@ -32,8 +28,9 @@ div{
     display: block;
 }
 
-.LoginForm{
-display: block;
+.SignUpForm{
+display: inline-grid;
+height: 70vh;
 }
 
 .button {

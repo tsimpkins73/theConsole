@@ -15,6 +15,8 @@ export default class SignUpForm extends React.Component {
                     <input type="text" /> 
                     <label for="Password">Password</label>
                     <input type="text" /> 
+                    </div>
+                    <div>
                     <Link to="/dashboard"><button>Submit</button></Link>
           <Link to="/login"><button>Login</button></Link>
                 </ div>

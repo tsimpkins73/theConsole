@@ -1,8 +1,8 @@
-#articleList{
+#ArticleList{
     position: absolute;
     width: 60%;
-    height: auto;
+    height: 100vh;
     left: 0;
     margin: 0;
-   
+    background: white;
 }
