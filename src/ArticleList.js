@@ -8,9 +8,9 @@ export default class ArticleList extends React.Component {
     render() {
         return (
             <section id="ArticleList">
-                <ArticlePreview />
-                <ArticlePreview />
-                <ArticlePreview />
+                {this.props.articles.map(function(article){
+                    return <ArticlePreview article={article}/>;
+                })}
                 </section>
                 );
             }
