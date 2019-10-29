@@ -5,8 +5,7 @@ export default class SearchDiv extends React.Component {
     render() {
         return (
             <div id="searchDiv">
-            <label for="searchBar">Search Bar</label>
-            <input type="text"></input>
+            <input type="text" className="input" placeholder="Search..." />
           </div>
         );
     }
