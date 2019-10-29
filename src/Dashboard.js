@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
             <section id="Header">Header</section>
             <section id="navbar"></section>
             <Sidebar articles={this.state.articles} />
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Route exact path={'/dashboard'} component={() => <ArticleList articles={this.state.articles} />} />
                 <Route exact path={'/dashboard/article'} component={ArticleView} />
                 <Route exact path={'/dashboard/article/:id'} render={(props) => {
