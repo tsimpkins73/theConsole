@@ -10,7 +10,7 @@ import ForgotPasswordForm from './ForgotPasswordForm.js'
 function App() {
   return (
     <main className='App'>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Route exact path={'/'} component={LandingPage} />
         <Route path={'/login'} component={LoginForm} />
         <Route path={'/sign-up'} component={SignUpForm} />
