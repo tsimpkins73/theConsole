@@ -29,7 +29,7 @@ export default class Dashboard extends React.Component {
                 <Route exact path={'/dashboard'} render={() => { return <ArticleList articles={this.state.articles} />}} />
                 <Route exact path={'/dashboard/article'} component={ArticleView} />
                 <Route exact path={'/dashboard/article/:id'} render={(props) => {
-                    console.log(this.state.articles.find(a => a.id === props.match.params.id));
+                    console.log(this.state.articles.find(a => a.id == props.match.params.id));
                     return <ArticleView article={this.state.articles.find(a => a.id === props.match.params.id)} />
                 }} />
             </BrowserRouter>

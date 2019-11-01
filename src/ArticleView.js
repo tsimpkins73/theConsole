@@ -8,6 +8,8 @@ export default class ArticleView extends React.Component {
 
 
     render() {
+               console.log(this.props.article)
+
         return (
             <div id="article-full-container">
             <section id="article-Full">
