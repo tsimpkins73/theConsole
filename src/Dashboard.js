@@ -23,8 +23,8 @@ export default class Dashboard extends React.Component {
             <section id="Header">Header</section>
             <section id="navbar"></section>
             <Sidebar articles={this.state.articles} />
-            <BrowserRouter basename={'/dashboard'}>
-                <Route exact path={""} component={() => <ArticleList articles={this.state.articles} />} />
+            <BrowserRouter>
+                <Route exact path={'/dashboard'} component={() => <ArticleList articles={this.state.articles} />} />
                 <Route exact path={'/dashboard/article'} component={ArticleView} />
                 <Route exact path={'/dashboard/article/:id'} render={(props) => {
                     console.log(this.state.articles.find(a => a.id === props.match.params.id));
