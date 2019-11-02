@@ -4,13 +4,15 @@ import './Sidebar.css'
 
 export default class CategoriesDiv extends React.Component {
     render() {
-
-        let categoriesArray = [...new Set(this.props.articles.map(x => x.categories))];
+        const categoriesArray = this.props.articles.map(article => article.categories);
         console.log(categoriesArray)
+        let filteredCategories = categoriesArray.toString().split(',');
+        console.log(filteredCategories)
+
 
         return (
             <div id="categoriesDiv">
-                {categoriesArray.map(function (category) {
+                {filteredCategories.map(function (category) {
                     return <CategoriesLink category={category} />
                 })}
             </div>

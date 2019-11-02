@@ -6,12 +6,16 @@ export default class ArticleList extends React.Component {
 
 
     render() {
+        let articles = this.props.articles
+        if (this.props.searchterm) {
+            articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
+        }
         return (
             <section id="ArticleList">
-                {this.props.articles.map(function(article){
-                    return <ArticlePreview article={article}/>;
+                {articles.map(function (article) {
+                    return <ArticlePreview article={article} />;
                 })}
-                </section>
-                );
-            }
+            </section>
+        );
+    }
 }
