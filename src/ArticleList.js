@@ -3,7 +3,7 @@ import ArticlePreview from "./ArticlePreview.js";
 import './ArticleList.css'
 
 export default class ArticleList extends React.Component {
-
+    
 
     render() {
         let articles = this.props.articles

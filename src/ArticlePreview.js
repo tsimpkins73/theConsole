@@ -1,9 +1,11 @@
 import React from 'react'
 import './ArticleView.css'
 import { Link } from 'react-router-dom';
+import {API_BASE_URL} from './config'
+
+
 
 export default class ArticlePreview extends React.Component {
-
 
     render(props) {
         // id= {this.props.article.id};

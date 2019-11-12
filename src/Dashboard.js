@@ -4,20 +4,47 @@ import Sidebar from './Sidebar.js'
 import ArticleList from './ArticleList.js'
 import ArticleView from './ArticleView.js'
 import './Dashboard.css'
+import {API_BASE_URL} from './config'
 
 export default class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
+    
         this.state = {
-            articles: [
-                { id: "1", headline: "a string", summary: "Article 1 summary is a summary iof article 1. This will hold a small snippet of the article's text", text: "", comments: [""], categories: ["Tutorial"], image: "IMAGE 1 URL", favorite: false },
-                { id: "2", headline: "another string", summary: "Article 2 summary is a summary iof article 2. This will hold a small snippet of the article's text", text: "", comments: [""], categories: ["News", "New Technology"], image: "IMAGE 2 URL", favorite: true },
-                { id: "3", headline: "a string", summary: "Article 3 summary is a summary iof article 3. This will hold a small snippet of the article's text", text: "", comments: [""], categories: ["Tutorial"], image: "IMAGE 3 URL", favorite: true },
-            ],
-
+          articles: [],
         };
-    }
+      }
+    
+      componentDidMount() {
+        fetch(`${API_BASE_URL}/articles`)
+          .then(response => response.json())
+          .then((articles) => { this.setState({ articles }); });
+      }
+    
+      
+    /* allArticles = () => dispatch => {
+        fetch(`${API_BASE_URL}/articles`).then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        }).then(response => response.json())
+        .then(responseJson => this.render(responseJson))
+        .catch(error => alert('Something went wrong. Try again later.'));
+    };
 
+    
+    articleByID = (id) => dispatch => {
+        fetch(`${API_BASE_URL}/articles/${id}`).then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        }).then(response => response.json())
+        .then(responseJson => this.render(responseJson))
+        .catch(error => alert('Something went wrong. Try again later.'));
+    };
+ */
     handleFavoriteButton = (article) => {
        article.favorite = !article.favorite
         this.setState({
@@ -39,9 +66,9 @@ export default class Dashboard extends React.Component {
             <section id="Header">Header</section>
             <section id="navbar"></section>
             <Sidebar articles={this.state.articles} handleSearchForm={this.handleSearchForm} />
-            <Route exact path={'/dashboard'} component={() => <ArticleList articles={this.state.articles} searchTerm={this.state.searchterm} />} />
+            <Route exact path={'/dashboard'} component={() => <ArticleList articles={this.state.articles} searchTerm={this.searchterm} />} />
             <Route path={'/dashboard/article/:id'} render={(props) => {
-                let article = (this.state.articles.find(a => a.id === props.match.params.id));
+   let article = (this.state.articles.find(a => a.id === props.match.params.id));
                 console.log(article)
                 return <ArticleView article={article} handleFavoriteButton= {() => this.handleFavoriteButton(article)} />
             }} />
