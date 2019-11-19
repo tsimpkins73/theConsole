@@ -2,7 +2,6 @@ import React from 'react'
 import SearchDiv from './SearchDiv.js'
 import FavoritesDiv from './FavoritesDiv.js'
 import CategoriesDiv from './CategoriesDiv.js'
-import './Sidebar.css'
 
 export default class Sidebar extends React.Component {
     render() {

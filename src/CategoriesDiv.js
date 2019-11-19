@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoriesLink from './CategoriesLink.js'
-import './Sidebar.css'
+import './css/Sidebar.css'
 
 export default class CategoriesDiv extends React.Component {
     render() {

@@ -1,5 +1,4 @@
 import React from 'react'
-import './Sidebar.css'
 import FavoritesLink from './FavoritesLink.js'
 
 export default class FavoritesDiv extends React.Component {

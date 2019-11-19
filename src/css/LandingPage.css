@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Sulphur+Point&display=swap');
+
 body{
     position: relative;
     margin-left: auto;
@@ -16,10 +18,21 @@ body{
     width: 70%;
     height: auto;
     display: block;
-    background: black;
     color: white;
     text-align: center;
     vertical-align: middle;
+}
+
+.lpButton{
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(117, 233, 233);
+    background-color: black;
+}
+
+.lpHeaderText{
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(117, 233, 233);
+    font-size: 3em;
 }
 
 #lpArticle {
