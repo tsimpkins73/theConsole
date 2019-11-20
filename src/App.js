@@ -7,18 +7,30 @@ import Dashboard from './Dashboard.js'
 import ForgotPasswordForm from './ForgotPasswordForm.js'
 
 
-function App() {
+
+export default class App extends React.Component {
+  constructor(props) 
+    { 
+        super(props); 
+        this.state = { lpArticle: "" }; 
+    }
+
+  handleLPArticle = (lpArticle) => {
+    this.setState({lpArticle: lpArticle});
+    return this.state.lpArticle;
+}
+  render() {
+ console.log(this.state.lpArticle)
   return (
     <main className='App'>
       <BrowserRouter>
-        <Route exact path={'/'} component={LandingPage} />
+        <Route exact path={'/'} component={LandingPage} lpArticle={this.state.lpArticle}/>
         <Route path={'/login'} component={LoginForm} />
         <Route path={'/sign-up'} component={SignUpForm} />
         <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-        <Route path={'/dashboard'} component={Dashboard} />
+        <Route path={'/dashboard'} component={Dashboard} lpArticle={this.handleLPArticle}/>
       </BrowserRouter>
     </main>
   );
 }
-
-export default App;
+}

@@ -5,7 +5,7 @@ import './css/Sidebar.css'
 export default class CategoriesLink extends React.Component {
     render() {
             return (
-                <Link to={"/dashboard/article/" + this.props.category}><h3>{this.props.category}</h3></Link>
+                <Link to={"/dashboard/" + this.props.category}><h3>{this.props.category}</h3></Link>
             );    
     }
 }

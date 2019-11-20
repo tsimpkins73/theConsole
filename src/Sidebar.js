@@ -8,7 +8,7 @@ export default class Sidebar extends React.Component {
         return (<section id="sidebar">
         <SearchDiv articles={this.props.articles}  handleSearchForm={this.handleSearchForm}/>
         <FavoritesDiv articles={this.props.articles} />
-        <CategoriesDiv articles={this.props.articles} />
+        <CategoriesDiv categories={this.props.categories} />
       </section>
         );
     }

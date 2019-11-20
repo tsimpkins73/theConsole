@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './css/LandingPage.css'
+import ArticlePreview from "./ArticlePreview.js";
 
 export default class LandingPage extends React.Component {
-  render() {
+   render() {
+    console.log(this.props.lpArticle);
     return (
       <section class="LandingContainer">
         <div><h1 className="lpHeaderText">theConsole</h1>
@@ -14,15 +16,10 @@ export default class LandingPage extends React.Component {
           <Link to="/sign-up"><button className="lpButton">Sign Up</button></Link>
           <Link to="/login"><button className="lpButton">Login</button></Link>
           </div>
-          <div class="lpArticlet">
-            <h1 id="HeaderText">Newest Blog Post</h1>
-            <div id="articleImage"></div>
-            <div id="articleText">
-                <h3>Article Headline</h3>
-                <p>Article Text</p>
+          <div class="lpArticle">
+          {/* <ArticlePreview article={this.props.lpArticle} /> */}
             </div>
           </div>
-        </div>
       </section>
     );
 
