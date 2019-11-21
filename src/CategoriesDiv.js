@@ -4,7 +4,7 @@ import './css/Sidebar.css'
 
 export default class CategoriesDiv extends React.Component {
     render() {
-        const categoriesArray = this.props.categories.map(categories => categories.name);
+        const categoriesArray = this.props.categories;
         console.log(categoriesArray)
         let filteredCategories = categoriesArray.toString().split(',');
         console.log(filteredCategories)

@@ -17,7 +17,7 @@ export default class LandingPage extends React.Component {
           <Link to="/login"><button className="lpButton">Login</button></Link>
           </div>
           <div class="lpArticle">
-          {/* <ArticlePreview article={this.props.lpArticle} /> */}
+          {<ArticlePreview article={this.props.lpArticle} /> }
             </div>
           </div>
       </section>
