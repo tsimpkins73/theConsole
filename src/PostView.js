@@ -1,6 +1,6 @@
 import React from 'react'
 import './Dashboard.css'
-
+/css
 export default class Post extends Component {
     render() {
         return (

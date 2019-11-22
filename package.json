@@ -1,7 +1,8 @@
 {
-  "name": "the",
+  "name": "theConsole",
   "version": "0.1.0",
   "private": true,
+  "presets": [["env", {"modules": true}], "react"],
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -16,12 +17,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "dist": "npm run build && now --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://tsimpkins73.github.io/theConsole/",
   "browserslist": {
     "production": [
       ">0.2%",

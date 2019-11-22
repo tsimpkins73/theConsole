@@ -1,5 +1,4 @@
 import React from 'react'
-import './Sidebar.css'
 import FavoritesLink from './FavoritesLink.js'
 
 export default class FavoritesDiv extends React.Component {
@@ -11,7 +10,7 @@ export default class FavoritesDiv extends React.Component {
         return (
             <div id="categoriesDiv">
                 {favoritesTrue.map(function (favorite) {
-                    return <FavoritesLink favorite={favorite} />
+                    return <FavoritesLink favoriteID={favorite.id} headline={favorite.headline}/>
                 })}
             </div>
         );
