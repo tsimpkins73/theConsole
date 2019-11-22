@@ -35,7 +35,7 @@ header{
 
 #dashboardContainer, main{
     width: 100vw;
-    height: 100%;
+    height: auto;
     display: inline-block;
 }
 

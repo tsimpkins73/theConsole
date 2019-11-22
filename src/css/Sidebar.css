@@ -22,7 +22,7 @@ h3{
 #sidebar {
     position: absolute;
     width: 21%;
-    height: 100vh;
+    height: auto;
     padding: 10px;
     padding-right: 2%;
     right: 0;
