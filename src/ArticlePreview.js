@@ -7,7 +7,7 @@ import {API_BASE_URL} from './config'
 
 export default class ArticlePreview extends React.Component {
 
-    render(props) {
+    render() {
         // id= {this.props.article.id};
             return(
             <section id="article">
