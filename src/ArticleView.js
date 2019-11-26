@@ -10,6 +10,8 @@ export default class ArticleView extends React.Component {
 
     render() {
         console.log(this.props.article);
+        const commentsArray = this.props.comments;
+        const articleComments = commentsArray.filter(comment => comment.articleId == this.props.article.id);
         return (
             <div id="article-full-container" >
                 <section id="article-Full">
