@@ -2,8 +2,17 @@
   "name": "theConsole",
   "version": "0.1.0",
   "private": true,
-  "presets": [["env", {"modules": true}], "react"],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": true
+      }
+    ],
+    "react"
+  ],
   "dependencies": {
+    "jwt-decode": "^2.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-native-dynamic-search-bar": "^0.2.1",

@@ -35,17 +35,13 @@ componentDidMount() {
 }
 
 
-
-  handleLPArticle = (lpArticle) => {
-    this.setState({lpArticle: lpArticle});
-    return this.state.lpArticle;
-}
   render() {
- console.log(this.state.lpArticle)
+    const lpArticle = this.state.articles[0];
+ console.log(lpArticle)
   return (
     <main className='App'>
       <BrowserRouter>
-        <Route exact path={'/'} render ={(props) => <LandingPage lpArticle={this.state.articles[0]} />} />
+        <Route exact path={'/'} render ={(props) => <LandingPage lpArticle={lpArticle} />} />
         <Route path={'/login'} component={LoginForm} />
         <Route path={'/sign-up'} component={SignUpForm} />
         <Route path={'/forgot-password'} component={ForgotPasswordForm} />

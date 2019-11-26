@@ -23,10 +23,10 @@ export default class ArticleView extends React.Component {
                         <Link to={"/dashboard/article/" + this.props.article.id + "/comment"}><button>Comment Button</button></Link>
                     </div>
                     <BrowserRouter>
-                    <Route exact path={`/dashboard/article/${this.props.article.id}/comment`} component={() => <AddCommentView articles={this.state.articles}/>
-                } />
-                </BrowserRouter>
-                    <CommentsList />
+                        <Route exact path={`/dashboard/article/${this.props.article.id}/comment`} component={() => <AddCommentView article={this.props.article} />
+                        } />
+                    </BrowserRouter>
+                    <CommentsList articleId={this.props.article.id} />
                 </section>
             </div >
         );
