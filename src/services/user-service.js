@@ -1,10 +1,11 @@
-import config from '../config'
+
 import TokenService from './token-service'
 import IdleService from './idle-service'
+import { API_BASE_URL } from '../config'
 
-const AuthApiService = {
+const UserService = {
   postUser(user) {
-    return fetch(`${config.API_ENDPOINT}/users`, {
+    return fetch(`${API_BASE_URL}/users`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -17,13 +18,13 @@ const AuthApiService = {
           : res.json()
       )
   },
-  postLogin({ user_name, password }) {
-    return fetch(`${config.API_ENDPOINT}/auth/login`, {
+  postLogin({ username, password }) {
+    return fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ user_name, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then(res =>
         (!res.ok)
@@ -31,22 +32,16 @@ const AuthApiService = {
           : res.json()
       )
       .then(res => {
-        /*
-          whenever a logint is performed:
-          1. save the token in local storage
-          2. queue auto logout when the user goes idle
-          3. queue a call to the refresh endpoint based on the JWT's exp value
-        */
         TokenService.saveAuthToken(res.authToken)
         IdleService.regiserIdleTimerResets()
         TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.postRefreshToken()
+          UserService.postRefreshToken()
         })
         return res
       })
   },
   postRefreshToken() {
-    return fetch(`${config.API_ENDPOINT}/auth/refresh`, {
+    return fetch(`${API_BASE_URL}/auth/refresh`, {
       method: 'POST',
       headers: {
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -58,14 +53,9 @@ const AuthApiService = {
           : res.json()
       )
       .then(res => {
-        /*
-          similar logic to whenever a user logs in, the only differences are:
-          - we don't need to queue the idle timers again as the user is already logged in.
-          - we'll catch the error here as this refresh is happening behind the scenes
-        */
         TokenService.saveAuthToken(res.authToken)
         TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.postRefreshToken()
+          UserService.postRefreshToken()
         })
         return res
       })
@@ -76,4 +66,4 @@ const AuthApiService = {
   },
 }
 
-export default AuthApiService
+export default UserService

@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/LoginForm.css'
 import { Link } from 'react-router-dom';
-import AuthApiService from './services/auth-api-service'
+import UserService from './services/user-service'
 
 export default class LoginForm extends React.Component {
     static defaultProps = {
@@ -15,7 +15,7 @@ export default class LoginForm extends React.Component {
         this.setState({ error: null })
         const { username, password } = ev.target
     
-        AuthApiService.postLogin({
+        UserService.postLogin({
           username: username.value,
           password: password.value,
         })
@@ -23,6 +23,7 @@ export default class LoginForm extends React.Component {
             username.value = ''
             password.value = ''
             this.props.onLoginSuccess()
+            this.props.history.push('/dashboard')
           })
           .catch(res => {
             this.setState({ error: res.error })
@@ -36,7 +37,7 @@ export default class LoginForm extends React.Component {
         return (
             <section class="LandingContainer">
                 <div class="LoginForm" > <h1 id="HeaderText"> Login Form Header </h1>
-                    <form>
+                    <form onSubmit={this.handleSubmitJwtAuth}>
                         <div>
                             <label for="username" > Username </label>
                             <input type="text" name="username"/>
@@ -45,7 +46,7 @@ export default class LoginForm extends React.Component {
                             <br />
                         </div>
                         <div>
-                            <Link to="/dashboard"><button>Submit</button></Link>
+                            <button >Submit</button>
                             <Link to="/forgot-password"><button>Forgot Password</button></Link>
                             <Link to="/sign-up"><button>Sign Up</button></Link>
                         </div>

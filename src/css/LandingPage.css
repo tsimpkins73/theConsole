@@ -45,17 +45,14 @@ body{
 
 #lpArticleImage {
     width: 90%;
-    margin: 10px;
+    margin: auto;
     height: auto;
-    margin-top: 5%;
     display: block;
 }
 
 #lpArticle{
     width: 100%;
     height: auto;
-    margin: 2%;
     vertical-align: middle;
     display: block;
-    padding: 5%;
 }

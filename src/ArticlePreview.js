@@ -1,7 +1,6 @@
 import React from 'react'
 import './css/ArticleView.css'
 import { Link } from 'react-router-dom';
-import {API_BASE_URL} from './config'
 
 
 

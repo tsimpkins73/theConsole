@@ -21,8 +21,7 @@ body {
 header{
     margin: auto;
     padding: 3em;
-    background: rgba(0, 0, 0, 0.7);
-    background-image: url(/assets/images/headerImage.jpg);
+
 }
 #headerTitle{
     font-family: 'Roboto Mono', monospace;
@@ -65,7 +64,7 @@ h3{
     margin: 0;
 top:0;
 color: white;
-background-image: url("/assets/images/headerImage.jpg");
+background-image: url("/src/assets/images/headerImage.jpg");
 background-size: cover; 
 }
 

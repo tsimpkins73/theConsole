@@ -14,40 +14,65 @@ export default class App extends React.Component {
     super(props, context);
 
     this.state = {
-        articles: [],
-        categories: [],
-        currentArticle: [],
-        lpArticle: []
+      articles: [],
+      categories: [],
+      currentArticle: [],
+      lpArticle: [],
+      categoryArticles: []
     };
-}
+  }
+
+  handleFavoriteButton = (article) => {
+    article.favorite = !article.favorite
+    this.setState({
+      articles: this.state.articles
+    })
+  }
+
+  handleSearchForm = (event) => {
+    event.preventDefault()
+    const term = event.currentTarget.searchTerm.value
+    this.setState({
+      searchterm: term
+    })
+    console.log(this.state.searchterm)
+  }
 
 
+  getArticlesByCategory = (category) => {
+    let selectedCategory = this.state.categories.find(c => (c.name == category))
+    let categoryID = selectedCategory.id
+    fetch(`${API_BASE_URL}/articles/category/${categoryID}`)
+      .then(response => response.json())
+      .then((categoryArticles) => { this.setState({ categoryArticles }); });
+    console.log(this.state.categoryArticles)
+  }
 
-componentDidMount() {
+  componentDidMount() {
     fetch(`${API_BASE_URL}/articles`)
-        .then(response => response.json())
-        .then((articles) => { this.setState({ articles }); });
+      .then(response => response.json())
+      .then((articles) => { this.setState({ articles }) });
     console.log(this.state.articles)
     fetch(`${API_BASE_URL}/categories`)
-    .then(response => response.json())
-    .then((categories) => { this.setState({ categories }); });
+      .then(response => response.json())
+      .then((categories) => { this.setState({ categories }) });
     console.log(this.state.categories)
-}
+  }
 
 
   render() {
     const lpArticle = this.state.articles[0];
- console.log(lpArticle)
-  return (
-    <main className='App'>
-      <BrowserRouter>
-        <Route exact path={'/'} render ={(props) => <LandingPage lpArticle={lpArticle} />} />
-        <Route path={'/login'} component={LoginForm} />
-        <Route path={'/sign-up'} component={SignUpForm} />
-        <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-        <Route path={'/dashboard'} render ={(props) => <Dashboard articles={this.state.articles} categories={this.state.categories} />} />
-      </BrowserRouter>
-    </main>
-  );
-}
+    console.log(lpArticle)
+    return (
+      <main className='App'>
+        <BrowserRouter>
+          <Route exact path={'/'} render={(props) => <LandingPage lpArticle={lpArticle} />} />
+          <Route path={'/login'} component={LoginForm} />
+          <Route path={'/sign-up'} component={SignUpForm} />
+          <Route path={'/forgot-password'} component={ForgotPasswordForm} />
+          <Route path={'/dashboard'} render={(props) => <Dashboard articles={this.state.articles} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} />} />
+        </BrowserRouter>
+      </main>
+    );
+  }
 }

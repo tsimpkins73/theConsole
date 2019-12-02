@@ -1,7 +1,5 @@
 import React from 'react'
 import './css/ArticleView.css'
-import { Link } from 'react-router-dom';
-import { API_BASE_URL } from './config'
 
 
 
@@ -11,6 +9,7 @@ export default class LandingPageArticle extends React.Component {
         // id= {this.props.article.id};
         return (
             <section id="lpArticle">
+                <h1>Our Latest Post</h1>
                 <div id="lpArticleImageContainer"><img id="lpArticleImage" src={this.props.lpArticle.image} /></div>
                 <div id="articleText">
                     <h3 id="articleText">{this.props.lpArticle.headline}</h3>
