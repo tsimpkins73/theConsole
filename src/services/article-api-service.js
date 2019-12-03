@@ -1,7 +1,7 @@
 import TokenService from '../services/token-service'
 import config from '../config'
 
-const ArticleApiService = {
+const ArticleService = {
   getArticles() {
     return fetch(`${config.API_ENDPOINT}/articles`, {
       headers: {
@@ -47,6 +47,7 @@ const ArticleApiService = {
       body: JSON.stringify({
         article_id: articleId,
         text,
+        user_id: userId
       }),
     })
       .then(res =>
@@ -57,4 +58,4 @@ const ArticleApiService = {
   }
 }
 
-export default ArticleApiService
+export default ArticleService

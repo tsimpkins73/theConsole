@@ -22,7 +22,7 @@ export default class CommentView extends React.Component {
         }
         console.log(this.state.articleComments)
     } */
-
+n
     render() {
         // let user=this.props.users.filter(users.id == this.props.comment.user_id);
         return (

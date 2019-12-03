@@ -16,15 +16,15 @@ constructor(props){
             
             fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
         .then(response => response.json())
-        .then((listArticles) => { this.setState({ listArticles }); });
+        .then((articles) => { this.setState({ listArticles }); });
         }
         else{
-            this.setState({listArticles:this.props.articles})
+            this.setState({articles:this.props.articles})
         }
     }
 
     render() {
-        let articles = this.props.articles;
+        let articles = this.state.articles;
         if (this.props.searchterm) {
             articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
         }
