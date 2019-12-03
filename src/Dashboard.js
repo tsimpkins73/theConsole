@@ -14,17 +14,18 @@ export default class Dashboard extends React.Component {
             <section id="Header"><h1 id="headerTitle">theConsole</h1></section>
             <section id="navbar"></section>
             <Sidebar articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
-            <Route exact path={'/dashboard'} component={() => <ArticleList articles={this.props.articles} searchTerm={this.props.searchterm} />} />
+            <Route exact path={'/dashboard'} render={(props) => 
+                {return <ArticleList articles={this.props.articles} searchTerm={this.props.searchterm} />}} />
             <Route path={'/dashboard/article/:id'} render={(props) => {
                 let id = props.match.params.id
                 console.log(this.props.articles)
                 console.log(id)
                 let article = (this.props.articles.find(a => (a.id == id)))
                 console.log(article)
-                return <ArticleView article={article} handleFavoriteButton={() => this.props.handleFavoriteButton(article)} />
+                return <ArticleView article={article} articleId={id} users={this.props.users} handleFavoriteButton={() => {this.props.handleFavoriteButton(article)}}  />
             }} />
             <Route exact path={'/dashboard/:categoryId'} render={(props) => {
-                    return <ArticleList searchTerm={this.searchterm} categoryId={props.match.params.categoryId} />
+                    return <ArticleList categoryId={props.match.params.categoryId} />
             }} />
         </section>
         );

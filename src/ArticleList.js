@@ -24,7 +24,7 @@ constructor(props){
     }
 
     render() {
-        let articles = this.state.listArticles;
+        let articles = this.props.articles;
         if (this.props.searchterm) {
             articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
         }

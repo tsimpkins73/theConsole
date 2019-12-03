@@ -18,7 +18,10 @@ export default class App extends React.Component {
       categories: [],
       currentArticle: [],
       lpArticle: [],
-      categoryArticles: []
+      categoryArticles: [],
+      searchterm: '',
+      searchArticles: [],
+      users:[]
     };
   }
 
@@ -51,12 +54,16 @@ export default class App extends React.Component {
   componentDidMount() {
     fetch(`${API_BASE_URL}/articles`)
       .then(response => response.json())
-      .then((articles) => { this.setState({ articles }) });
+      .then((articles) => { this.setState({ articles }); });
     console.log(this.state.articles)
     fetch(`${API_BASE_URL}/categories`)
       .then(response => response.json())
-      .then((categories) => { this.setState({ categories }) });
+      .then((categories) => { this.setState({ categories }); });
     console.log(this.state.categories)
+    fetch(`${API_BASE_URL}/users/`)
+    .then(response => response.json())
+    .then((users) => { this.setState({ users }); });
+  console.log(this.state.users)
   }
 
 
@@ -66,11 +73,11 @@ export default class App extends React.Component {
     return (
       <main className='App'>
         <BrowserRouter>
-          <Route exact path={'/'} render={(props) => <LandingPage lpArticle={lpArticle} />} />
+          <Route exact path={'/'} render={() => <LandingPage lpArticle={lpArticle} />} />
           <Route path={'/login'} component={LoginForm} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={(props) => <Dashboard articles={this.state.articles} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} />} />
+          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} users={this.state.users} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} />} />
         </BrowserRouter>
       </main>
     );

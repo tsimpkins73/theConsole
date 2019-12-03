@@ -9,9 +9,9 @@ export default class ArticleView extends React.Component {
 
 
     render() {
-        console.log(this.props.article);
-        const commentsArray = this.props.comments;
-        const articleComments = commentsArray.filter(comment => comment.articleId == this.props.article.id);
+      console.log(this.props.users);
+       /*    const commentsArray = this.props.comments;
+        const articleComments = commentsArray.filter(comment => comment.articleId == this.props.article.id); */
         return (
             <div id="article-full-container" >
                 <section id="article-Full">
@@ -28,7 +28,7 @@ export default class ArticleView extends React.Component {
                         <Route exact path={`/dashboard/article/${this.props.article.id}/comment`} component={() => <AddCommentView article={this.props.article} />
                         } />
                     </BrowserRouter>
-                    <CommentsList articleId={this.props.article.id} />
+                    <CommentsList articleId={this.props.articleId} users={this.props.users} />
                 </section>
             </div >
         );

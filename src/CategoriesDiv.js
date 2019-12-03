@@ -12,7 +12,7 @@ export default class CategoriesDiv extends React.Component {
 
         return (
             <div id="categoriesDiv">
-                {categoriesArray.filter(function (category) {
+                {categoriesArray.map(function (category) {
                     return <CategoriesLink category={category} />
                 })}
             </div>
