@@ -37,7 +37,7 @@ const ArticleService = {
           : res.json()
       )
   },
-  postComment(articleId, text) {
+  postComment(articleId, text, userId) {
     return fetch(`${config.API_ENDPOINT}/comments`, {
       method: 'POST',
       headers: {

@@ -7,28 +7,35 @@ export default class ArticleList extends React.Component {
 constructor(props){
     super(props);
     this.state= {
-        listArticles:[]
+        articles:[],
+        categoryId: null,
     };
 }
 
+fetchData(){
+    fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+        .then(response => response.json())
+        .then((articles) => { this.setState({ articles, categoryId:this.props.categoryId }); });
+}
     componentDidMount () {
         if (this.props.categoryId){
-            
-            fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
-        .then(response => response.json())
-        .then((articles) => { this.setState({ listArticles }); });
+            this.fetchData();         
         }
         else{
             this.setState({articles:this.props.articles})
         }
     }
+componentDidUpdate () {
+    if (this.state.categoryId !== this.props.categoryId){
+        this.fetchData();         
+    }
+}
 
     render() {
         let articles = this.state.articles;
         if (this.props.searchterm) {
             articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
         }
-        console.log(this.props.articles);
         return (
             <section id="ArticleList">
                 {articles.map(function (article) {
