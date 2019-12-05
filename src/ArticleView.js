@@ -9,7 +9,7 @@ export default class ArticleView extends React.Component {
 
 
     render() {
-      console.log(this.props.users);
+      console.log(this.props.user);
        /*    const commentsArray = this.props.comments;
         const articleComments = commentsArray.filter(comment => comment.articleId == this.props.article.id); */
         return (
@@ -35,6 +35,6 @@ export default class ArticleView extends React.Component {
     }
 }
 
-ArticleView.defaultProps = {
+/* ArticleView.defaultProps = {
     article: {}
-}
+} */

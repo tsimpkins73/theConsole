@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import UserService from './services/user-service'
 
 export default class LoginForm extends React.Component {
-    static defaultProps = {
+   /*  static defaultProps = {
         onLoginSuccess: () => {}
-      }
+      } */
     
       state = { error: null }
     
@@ -22,7 +22,7 @@ export default class LoginForm extends React.Component {
           .then(res => {
             username.value = ''
             password.value = ''
-            this.props.onLoginSuccess()
+            this.props.onLoginSuccess(res.username)
             this.props.history.push('/dashboard')
           })
           .catch(res => {

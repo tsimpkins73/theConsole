@@ -17,11 +17,12 @@ export default class App extends React.Component {
       articles: [],
       categories: [],
       currentArticle: [],
-      lpArticle: [],
+      lpArticle: {},
       categoryArticles: [],
       searchterm: '',
       searchArticles: [],
-      users:[]
+      user: {},
+      allUsers:[],
     };
   }
 
@@ -41,6 +42,13 @@ export default class App extends React.Component {
     console.log(this.state.searchterm)
   }
 
+  onLoginSuccess = (username) => {
+    console.log(username)
+    fetch(`${API_BASE_URL}/users/${username}`)
+      .then(response => response.json())
+      .then((user) => {this.setState({ user }); });
+      console.log(this.state.user)
+  }
 
   getArticlesByCategory = (category) => {
     let selectedCategory = this.state.categories.find(c => (c.name == category))
@@ -60,10 +68,6 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then((categories) => { this.setState({ categories }); });
     console.log(this.state.categories)
-    fetch(`${API_BASE_URL}/users/`)
-    .then(response => response.json())
-    .then((users) => { this.setState({ users }); });
-  console.log(this.state.users)
   }
 
 
@@ -74,10 +78,10 @@ export default class App extends React.Component {
       <main className='App'>
         <BrowserRouter>
           <Route exact path={'/'} render={() => <LandingPage lpArticle={lpArticle} />} />
-          <Route path={'/login'} component={LoginForm} />
+          <Route path={'/login'} render={() => <LoginForm onLoginSuccess={this.onLoginSuccess} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} users={this.state.users} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} />} />
+          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user}/>} />
         </BrowserRouter>
       </main>
     );
