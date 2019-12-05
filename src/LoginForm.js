@@ -20,9 +20,9 @@ export default class LoginForm extends React.Component {
           password: password.value,
         })
           .then(res => {
-            this.props.onLoginSuccess(res.username)
             username.value = ''
             password.value = ''
+            this.props.onLoginSuccess(res.username)
             this.props.history.push('/dashboard')
           })
           .catch(res => {

@@ -43,7 +43,7 @@ export default class App extends React.Component {
   }
 
   onLoginSuccess = (username) => {
-    console.log(username);
+    console.log(username)
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
       .then((user) => {this.setState({ user }); });
