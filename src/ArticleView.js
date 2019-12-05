@@ -35,6 +35,6 @@ export default class ArticleView extends React.Component {
     }
 }
 
-ArticleView.defaultProps = {
+/* ArticleView.defaultProps = {
     article: {}
-}
+} */
