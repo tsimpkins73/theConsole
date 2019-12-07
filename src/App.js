@@ -48,7 +48,6 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then((user) => {
         this.setState({ user });
-        this.props.history.push('/dashboard');
       });
     console.log(this.state.user)
   }
@@ -81,7 +80,7 @@ export default class App extends React.Component {
       <main className='App'>
         <BrowserRouter>
           <Route exact path={'/'} render={() => <LandingPage lpArticle={lpArticle} />} />
-          <Route path={'/login'} render={() => <LoginForm onLoginSuccess={this.onLoginSuccess} />} />
+          <Route path={'/login'} render={(props) => <LoginForm onLoginSuccess={this.onLoginSuccess} {...props} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
           <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user} />} />
