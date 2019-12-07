@@ -22,7 +22,7 @@ export default class App extends React.Component {
       searchterm: '',
       searchArticles: [],
       user: {},
-      allUsers:[],
+      allUsers: [],
     };
   }
 
@@ -46,8 +46,11 @@ export default class App extends React.Component {
     console.log(username)
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
-      .then((user) => {this.setState({ user }); });
-      console.log(this.state.user)
+      .then((user) => {
+        this.setState({ user });
+        this.props.history.push('/dashboard');
+      });
+    console.log(this.state.user)
   }
 
   getArticlesByCategory = (category) => {
@@ -81,7 +84,7 @@ export default class App extends React.Component {
           <Route path={'/login'} render={() => <LoginForm onLoginSuccess={this.onLoginSuccess} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user}/>} />
+          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user} />} />
         </BrowserRouter>
       </main>
     );
