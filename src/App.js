@@ -36,6 +36,7 @@ export default class App extends React.Component {
   handleSearchForm = (event) => {
     event.preventDefault()
     const term = event.currentTarget.searchTerm.value
+    console.log(term)
     this.setState({
       searchterm: term
     })
