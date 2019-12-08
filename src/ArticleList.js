@@ -12,14 +12,14 @@ constructor(props){
     };
 }
 
-fetchData(categoryId){
-    fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
+fetchData(){
+    fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
         .then(response => response.json())
         .then((articles) => { this.setState({ articles, categoryId:this.props.categoryId }); });
 }
     componentDidMount () {
         if (this.props.categoryId){
-            this.fetchData(this.props.categoryId);         
+            this.fetchData();         
         }
         else{
             this.setState({articles:this.props.articles})
@@ -27,7 +27,7 @@ fetchData(categoryId){
     }
 componentDidUpdate () {
     if (this.state.categoryId !== this.props.categoryId){
-        this.fetchData(this.state.categoryId);         
+        this.fetchData();         
     }
 }
 
