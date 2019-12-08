@@ -7,6 +7,7 @@ export default class AddCommentView extends React.Component {
     newComment = event => {
         event.preventDefault();
         const newCommentText = event.currentTarget.addComment.value;
+        console.log(this.props.user);
         const userId = this.props.user.id;
         const articleId = this.props.articleId;
         ArticleService.postComment(articleId, newCommentText, userId)
