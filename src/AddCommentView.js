@@ -4,6 +4,9 @@ import ArticleService from './services/article-service';
 //import './CommentView.css'
 
 export default class AddCommentView extends React.Component {
+    
+    console.log(this.props.user)
+
     newComment = event => {
         event.preventDefault();
         const newCommentText = event.currentTarget.addComment.value;
