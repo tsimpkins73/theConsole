@@ -5,7 +5,6 @@ import ArticleService from './services/article-service';
 
 export default class AddCommentView extends React.Component {
     
-    console.log(this.props.user)
 
     newComment = event => {
         event.preventDefault();
@@ -22,6 +21,7 @@ export default class AddCommentView extends React.Component {
 
 
     render() {
+        console.log(this.props.user)
         return (
             <div id="newComment">
                 <form onSubmit={this.newComment}>
