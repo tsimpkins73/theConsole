@@ -13,7 +13,7 @@ constructor(props){
 }
 
 fetchData(){
-    let categoryId =props.match.params.categoryId
+    let categoryId =this.match.params.categoryId
     console.log(categoryId)
     fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
         .then(response => response.json())
