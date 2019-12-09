@@ -27,7 +27,7 @@ fetchData(){
     }
 componentDidUpdate () {
     if (!this.props.categoryId){
-        this.setState.categoryId(null)
+        this.setState({categoryId:null})
     }
         
         if (this.state.categoryId !== this.props.categoryId){
