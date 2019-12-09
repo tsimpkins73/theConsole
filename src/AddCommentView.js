@@ -21,8 +21,8 @@ export default class AddCommentView extends React.Component {
 
 
     render() {
-        console.log(this.props.user)
         return (
+            console.log(this.props.user)
             <div id="newComment">
                 <form onSubmit={this.newComment}>
                     <label for="AddComment">Add Comment</label>
