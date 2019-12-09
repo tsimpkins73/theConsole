@@ -13,9 +13,11 @@ constructor(props){
 }
 
 fetchData(){
-    fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+    let categoryId ={props.match.params.categoryId}
+    console.log(categoryId)
+    fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
         .then(response => response.json())
-        .then((articles) => { this.setState({ articles, categoryId:this.props.categoryId }); });
+        .then((articles) => { this.setState({ articles, categoryId:categoryId }); });
 }
     componentDidMount () {
         if (this.props.categoryId){
@@ -26,13 +28,8 @@ fetchData(){
         }
     }
 componentDidUpdate () {
-    if (!this.props.categoryId){
-        this.setState({categoryId: null});
-        
-    }else if (this.state.categoryId !== this.props.categoryId){
         this.fetchData();         
     }
-}
 
     render() {
         let articles = this.state.articles;
