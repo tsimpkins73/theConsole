@@ -26,12 +26,9 @@ fetchData(){
         }
     }
 componentDidUpdate () {
-    if (!this.props.categoryId){
-        this.setState({categoryId:null})
-    }
-        
-        if (this.state.categoryId !== this.props.categoryId){
-        this.fetchData();         
+  if (props.match.params.categoryId !== this.props.categoryId){
+    this.setState({categoryId:props.match.params.categoryId});    
+    this.fetchData();         
     }
 }
 
