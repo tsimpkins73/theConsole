@@ -21,16 +21,13 @@ export default class ArticleList extends React.Component {
 fetchSearchArticles() {
     let searchArticles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0);
     console.log(searchArticles);
-    this.setState({ articles:searchArticles });
+    this.setState({ articles: searchArticles });
     this.props.history.push('/dashboard');
 }    
 
     componentDidMount() {
         if (this.props.categoryId) {
             this.fetchData(this.props.categoryId);
-        }
-        else if (this.props.searchTerm) {
-            this.fetchSearchArticles();
         }
         else {
             this.setState({ articles: this.props.articles })
@@ -39,6 +36,9 @@ fetchSearchArticles() {
     componentDidUpdate() {
         if (this.props.categoryId && this.state.categoryId !== this.props.categoryId) {
             this.fetchData(this.props.categoryId);
+        }
+        else if (this.props.searchTerm) {
+            this.fetchSearchArticles();
         }
     }
 
