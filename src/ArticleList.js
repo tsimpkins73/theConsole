@@ -15,7 +15,7 @@ export default class ArticleList extends React.Component {
     fetchData(categoryId) {
         fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
             .then(response => response.json())
-            .then((articles) => { this.setState({ articles, categoryId: this.props.categoryId }); });
+            .then((articles) => { this.setState({ articles, categoryId: categoryId }); });
     }
 
 fetchSearchArticles() {
