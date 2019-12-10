@@ -33,7 +33,7 @@ export default class ArticleList extends React.Component {
 
     render() {
         let articles = this.state.articles;
-        if (this.props.searchterm) {
+        if (this.props.searchTerm) {
             articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
         }
         return (
