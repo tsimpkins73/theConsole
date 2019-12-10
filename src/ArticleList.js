@@ -17,12 +17,18 @@ export default class ArticleList extends React.Component {
             .then(response => response.json())
             .then((articles) => { this.setState({ articles, categoryId: this.props.categoryId }); });
     }
+
+fetchSearchArticles() {
+    let searchArticles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0);
+    this.setState({ articles:searchArticles });
+}    
+
     componentDidMount() {
         if (this.props.categoryId) {
             this.fetchData();
         }
         else if (this.props.searchTerm) {
-            articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
+            this.fetchSearchArticles();
         }
         else {
             this.setState({ articles: this.props.articles })
