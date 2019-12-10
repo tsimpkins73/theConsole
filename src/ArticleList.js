@@ -12,8 +12,8 @@ export default class ArticleList extends React.Component {
         };
     }
 
-    fetchData() {
-        fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+    fetchData(categoryId) {
+        fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
             .then(response => response.json())
             .then((articles) => { this.setState({ articles, categoryId: this.props.categoryId }); });
     }
@@ -25,7 +25,7 @@ fetchSearchArticles() {
 
     componentDidMount() {
         if (this.props.categoryId) {
-            this.fetchData();
+            this.fetchData(this.props.categoryId);
         }
         else if (this.props.searchTerm) {
             this.fetchSearchArticles();
@@ -36,7 +36,7 @@ fetchSearchArticles() {
     }
     componentDidUpdate() {
         if (this.props.categoryId && this.state.categoryId !== this.props.categoryId) {
-            this.fetchData();
+            this.fetchData(this.props.categoryId);
         }
     }
 
