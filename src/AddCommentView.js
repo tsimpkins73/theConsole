@@ -10,6 +10,7 @@ export default class AddCommentView extends React.Component {
         event.preventDefault();
         const newCommentText = event.currentTarget.addComment.value;
         const article_id = this.props.articleId;
+        console.log(article_id);
         ArticleService.postComment(article_id, newCommentText)
         .then(comment => {
             this.setComments([
@@ -25,7 +26,6 @@ export default class AddCommentView extends React.Component {
 
 
     render() {
-        console.log(this.props.user);
         return (
             <div id="newComment">
                 <form onSubmit={this.newComment}>
