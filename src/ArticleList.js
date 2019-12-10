@@ -21,6 +21,9 @@ export default class ArticleList extends React.Component {
         if (this.props.categoryId) {
             this.fetchData();
         }
+        else if (this.props.searchTerm) {
+            articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
+        }
         else {
             this.setState({ articles: this.props.articles })
         }
@@ -33,9 +36,6 @@ export default class ArticleList extends React.Component {
 
     render() {
         let articles = this.state.articles;
-        if (this.props.searchTerm) {
-            articles = this.props.articles.filter(article => article.text.indexOf(this.props.searchterm) >= 0)
-        }
         return (
             <section id="ArticleList">
                 {articles.map(function (article) {
