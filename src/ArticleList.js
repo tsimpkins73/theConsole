@@ -12,9 +12,9 @@ constructor(props){
     };
 }
 
-fetchData(){
-    let categoryId =this.params.categoryId
-    console.log(categoryId)
+/* fetchData(){
+    let categoryId =this.params.categoryId;
+    console.log(categoryId);
     fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
         .then(response => response.json())
         .then((articles) => { this.setState({ articles, categoryId:categoryId }); });
@@ -29,6 +29,27 @@ fetchData(){
     }
 componentDidUpdate () {
         this.fetchData();         
+    } */
+
+
+
+    fetchData(){
+        fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+            .then(response => response.json())
+            .then((articles) => { this.setState({ articles, categoryId:this.props.categoryId }); });
+    }
+        componentDidMount () {
+            if (this.props.categoryId){
+                this.fetchData();         
+            }
+            else{
+                this.setState({articles:this.props.articles})
+            }
+        }
+    componentDidUpdate () {
+        if (this.state.categoryId !== this.props.categoryId){
+            this.fetchData();         
+        }
     }
 
     render() {
