@@ -4,39 +4,20 @@ import './css/ArticleList.css'
 import { API_BASE_URL } from './config'
 
 export default class ArticleList extends React.Component {
-constructor(props){
-    super(props);
-    this.state= {
-        articles:[],
-        categoryId: null,
-    };
-}
-
-/* fetchData(){
-    let categoryId =this.params.categoryId;
-    console.log(categoryId);
-    fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
-        .then(response => response.json())
-        .then((articles) => { this.setState({ articles, categoryId:categoryId }); });
-}
-    componentDidMount () {
-        if (this.props.categoryId){
-            this.fetchData();         
-        }
-        else{
-            this.setState({articles:this.props.articles})
-        }
+    constructor(props) {
+        super(props);
+        this.state = {
+            articles: [],
+            categoryId: null,
+        };
     }
-componentDidUpdate () {
-        this.fetchData();         
-    } */
 
-
-
-    fetchData(){
-        fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+    /* fetchData(){
+        let categoryId =this.params.categoryId;
+        console.log(categoryId);
+        fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
             .then(response => response.json())
-            .then((articles) => { this.setState({ articles, categoryId:this.props.categoryId }); });
+            .then((articles) => { this.setState({ articles, categoryId:categoryId }); });
     }
         componentDidMount () {
             if (this.props.categoryId){
@@ -47,8 +28,27 @@ componentDidUpdate () {
             }
         }
     componentDidUpdate () {
-        if (this.state.categoryId !== this.props.categoryId){
             this.fetchData();         
+        } */
+
+
+
+    fetchData() {
+        fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
+            .then(response => response.json())
+            .then((articles) => { this.setState({ articles, categoryId: this.props.categoryId }); });
+    }
+    componentDidMount() {
+        if (this.props.categoryId) {
+            this.fetchData();
+        }
+        else {
+            this.setState({ articles: this.props.articles })
+        }
+    }
+    componentDidUpdate() {
+        if (this.props.categoryId && this.state.categoryId !== this.props.categoryId) {
+            this.fetchData();
         }
     }
 
