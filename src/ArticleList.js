@@ -12,27 +12,6 @@ export default class ArticleList extends React.Component {
         };
     }
 
-    /* fetchData(){
-        let categoryId =this.params.categoryId;
-        console.log(categoryId);
-        fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
-            .then(response => response.json())
-            .then((articles) => { this.setState({ articles, categoryId:categoryId }); });
-    }
-        componentDidMount () {
-            if (this.props.categoryId){
-                this.fetchData();         
-            }
-            else{
-                this.setState({articles:this.props.articles})
-            }
-        }
-    componentDidUpdate () {
-            this.fetchData();         
-        } */
-
-
-
     fetchData() {
         fetch(`${API_BASE_URL}/articles/category/${this.props.categoryId}`)
             .then(response => response.json())

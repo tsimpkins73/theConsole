@@ -40,7 +40,6 @@ export default class App extends React.Component {
     this.setState({
       searchterm: term
     })
-    console.log(this.state.searchterm)
   }
 
   onLoginSuccess = (username) => {
@@ -84,7 +83,7 @@ export default class App extends React.Component {
           <Route path={'/login'} render={(props) => <LoginForm onLoginSuccess={this.onLoginSuccess} {...props} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user} />} />
+          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} searchTerm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.props.handleFavoriteButton} user={this.state.user} />} />
         </BrowserRouter>
       </main>
     );
