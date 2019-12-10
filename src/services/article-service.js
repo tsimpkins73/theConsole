@@ -37,7 +37,7 @@ const ArticleService = {
           : res.json()
       )
   },
-  postComment(articleId, text) {
+  postComment(article_id, text) {
     return fetch(`${API_BASE_URL}/comments`, {
       method: 'POST',
       headers: {
@@ -45,7 +45,7 @@ const ArticleService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        article_id: articleId,
+        article_id: article_id,
         text
       }),
     })
