@@ -26,6 +26,14 @@ export default class App extends React.Component {
     };
   }
 
+  setComment= (comment) => {
+    this.setState([
+      ...this.state.comments,
+      comment
+    ])
+  }
+
+
   handleFavoriteButton = (article) => {
     article.favorite = !article.favorite
     this.setState({
