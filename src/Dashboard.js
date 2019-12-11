@@ -21,7 +21,7 @@ export default class Dashboard extends React.Component {
                 console.log(articleId)
                 let article = (this.props.articles.find(a => (a.id == articleId)))
                 console.log(article)
-                return <ArticleView article={article} articleId={articleId} user={this.props.user} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
+                return <ArticleView article={article} articleId={articleId} setComment={this.props.setComment} user={this.props.user} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
             }} />
             <Route exact path={'/dashboard/:categoryId'} render={(props) => {
                 return <ArticleList categoryId={props.match.params.categoryId} />

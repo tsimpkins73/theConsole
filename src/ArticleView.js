@@ -23,7 +23,7 @@ export default class ArticleView extends React.Component {
                         <button onClick={this.props.handleFavoriteButton}>Favorite Button</button>
                         <Link to={"/dashboard/article/" + this.props.article.id + "/comment"}><button>Comment Button</button></Link>
                     </div>
-                        <Route exact path={`/dashboard/article/${this.props.article.id}/comment`} render={() => <AddCommentView article={this.props.article} articleId={this.props.article.id} user={user} />
+                        <Route exact path={`/dashboard/article/${this.props.article.id}/comment`} render={() => <AddCommentView article={this.props.article} articleId={this.props.article.id} setComment={this.props.setComment} user={user} />
                         } />
                     <CommentsList articleId={this.props.articleId} users={this.props.users} />
                 </section>
