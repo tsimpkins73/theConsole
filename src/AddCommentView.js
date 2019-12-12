@@ -12,11 +12,9 @@ export default class AddCommentView extends React.Component {
         const article_id = this.props.articleId;
         console.log(article_id);
         ArticleService.postComment(article_id, newCommentText)
-        .then(this.props.setComment())
-        .then(() => {
-            newCommentText.value = ''
-        })
+        .then(this.props.getComments(article_id))
         .catch(this.context.setError)
+        window.location.reload(false);
     }
 
 

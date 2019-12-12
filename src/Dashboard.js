@@ -14,7 +14,7 @@ export default class Dashboard extends React.Component {
             <section id="Header"><h1 id="headerTitle">theConsole</h1></section>
             <section id="navbar"></section>
             <Sidebar articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
-            <Route exact path={'/dashboard'} render={(props) => { return <ArticleList articles={this.props.articles} searchTerm={this.props.searchterm} /> }} />
+            <Route exact path={'/dashboard'} render={(props) => { return <ArticleList articles={this.props.articles} searchterm={this.props.searchterm} /> }} />
             <Route path={'/dashboard/article/:id'} render={(props) => {
                 let articleId = props.match.params.id
                 console.log(this.props.articles)
