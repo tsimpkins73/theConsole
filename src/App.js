@@ -35,19 +35,20 @@ export default class App extends React.Component {
 
 
   handleFavoriteButton = (article) => {
-    article.favorite = !article.favorite
+    article.favorite = !article.favorite;
     this.setState({
       articles: this.state.articles
-    })
+    });
   }
 
   handleSearchForm = (event) => {
-    event.preventDefault()
-    const term = event.currentTarget.searchTerm.value
-    console.log(term)
+    event.preventDefault();
+    const term = event.currentTarget.searchTerm.value;
+    console.log(term);
     this.setState({
       searchterm: term
-    })
+    });
+    console.log(this.state.searchterm);
   }
 
   onLoginSuccess = (username) => {
@@ -82,7 +83,7 @@ export default class App extends React.Component {
     console.log(this.state.categories)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getArticles();
     this.getCategories();
   }
@@ -102,7 +103,7 @@ export default class App extends React.Component {
           <Route path={'/login'} render={(props) => <LoginForm onLoginSuccess={this.onLoginSuccess} {...props} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
           <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={() => <Dashboard articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} user={this.state.user} />} />
+          <Route path={'/dashboard'} render={(props) => <Dashboard {...props} articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} user={this.state.user} />} />
         </BrowserRouter>
       </main>
     );

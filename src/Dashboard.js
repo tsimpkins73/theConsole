@@ -10,11 +10,12 @@ export default class Dashboard extends React.Component {
 
 
     render() {
+        console.log(this.props.articles, '000000')
         return (<section id="dashboardContainer">
             <section id="Header"><h1 id="headerTitle">theConsole</h1></section>
             <section id="navbar"></section>
-            <Sidebar articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
-            <Route exact path={'/dashboard'} render={(props) => { return <ArticleList articles={this.props.articles} searchterm={this.props.searchterm} /> }} />
+            <Sidebar {...this.props} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
+            <Route exact path={'/dashboard'} render={(props) => { console.log(this.props.searchterm, '11111'); return <ArticleList articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />
             <Route path={'/dashboard/article/:id'} render={(props) => {
                 let articleId = props.match.params.id
                 console.log(this.props.articles)
@@ -26,7 +27,7 @@ export default class Dashboard extends React.Component {
             <Route exact path={'/dashboard/:categoryId'} render={(props) => {
                 return <ArticleList categoryId={props.match.params.categoryId} />
             }} />
-            <Route exact path={'/dashboard/:searchterm'} render={(props) => {
+            <Route exact path={'/dashboard/search/:searchterm'} render={(props) => {
                 return <ArticleList searchterm={props.match.params.searchterm} />
             }} />
         </section>

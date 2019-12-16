@@ -8,13 +8,13 @@ export default class AddCommentView extends React.Component {
 
     newComment = event => {
         event.preventDefault();
-        const newCommentText = event.currentTarget.addComment.value;
+        const text = event.currentTarget.addComment.value;
         const article_id = this.props.articleId;
-        console.log(article_id);
-        ArticleService.postComment(article_id, newCommentText)
-        .then(this.props.getComments(article_id))
+        const comment = {article_id, text}
+        console.log(comment);
+        ArticleService.postComment(article_id, text)
+        .then(this.props.addComment(comment))
         .catch(this.context.setError)
-        window.location.reload(false);
     }
 
 
