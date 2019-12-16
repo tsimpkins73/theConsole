@@ -37,7 +37,7 @@ export default class LoginForm extends React.Component {
         return (
             <section class="LandingContainer">
                 <div class="LoginForm" > <h1 id="HeaderText"> Welcome, Please Sign In! </h1>
-                Guests, please login with Username: GenBlanc and Password: Password34!. 
+                Guests, please login with Username: GenBlanc and Password: Password34! 
                     <form onSubmit={this.handleSubmitJwtAuth}>
                         <div>
                             <label for="username" > Username </label>
