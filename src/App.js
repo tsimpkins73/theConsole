@@ -44,21 +44,17 @@ export default class App extends React.Component {
   handleSearchForm = (event) => {
     event.preventDefault();
     const term = event.currentTarget.searchTerm.value;
-    console.log(term);
     this.setState({
       searchterm: term
     });
-    console.log(this.state.searchterm);
   }
 
   onLoginSuccess = (username) => {
-    console.log(username)
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
       .then((user) => {
         this.setState({ user });
       });
-    console.log(this.state.user)
   }
 
   getArticlesByCategory = (category) => {
@@ -67,35 +63,26 @@ export default class App extends React.Component {
     fetch(`${API_BASE_URL}/articles/category/${categoryID}`)
       .then(response => response.json())
       .then((categoryArticles) => { this.setState({ categoryArticles }); });
-    console.log(this.state.categoryArticles)
   }
 
   getArticles() {
     fetch(`${API_BASE_URL}/articles`)
       .then(response => response.json())
       .then((articles) => { this.setState({ articles }); });
-    console.log(this.state.articles)
   }
     getCategories() {
        fetch(`${API_BASE_URL}/categories`)
       .then(response => response.json())
       .then((categories) => { this.setState({ categories }); });
-    console.log(this.state.categories)
   }
 
   componentDidMount() {
     this.getArticles();
     this.getCategories();
   }
-/* 
-  componentDidUpdate() {
-    this.getArticles();
-    this.getCategories();
-  } */
   
     render() {
     const lpArticle = this.state.articles[0];
-    console.log(lpArticle)
     return (
       <main className='App'>
         <BrowserRouter>

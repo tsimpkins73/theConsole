@@ -6,7 +6,6 @@ import './css/ArticleView.css'
 export default class LandingPageArticle extends React.Component {
 
     render() {
-        // id= {this.props.article.id};
         return (
             <section id="lpArticle">
                 <h1>Our Latest Post</h1>

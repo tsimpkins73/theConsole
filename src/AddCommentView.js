@@ -11,7 +11,6 @@ export default class AddCommentView extends React.Component {
         const text = event.currentTarget.addComment.value;
         const article_id = this.props.articleId;
         const comment = {article_id, text}
-        console.log(comment);
         ArticleService.postComment(article_id, text)
         .then(this.props.addComment(comment))
         .catch(this.context.setError)

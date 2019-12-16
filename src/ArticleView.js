@@ -20,18 +20,15 @@ export default class ArticleView extends React.Component {
           comment
         ]
         this.setState({ articleComments })
-        console.log(this.state.articleComments)
       }
 
     getComments = (article_id) => {
-        console.log(article_id);
         fetch(`${API_BASE_URL}/comments/${article_id}`)
         .then(response => response.json())
         .then((articleComments) => { this.setState({ articleComments }); });
     }
 
         getComments = (article_id) => {
-        console.log(article_id);
         fetch(`${API_BASE_URL}/comments/${article_id}`)
         .then(response => response.json())
         .then((articleComments) => { this.setState({ articleComments }); });
@@ -41,16 +38,13 @@ export default class ArticleView extends React.Component {
         if (this.props.article.id){
             
 this.getComments(this.props.article.id);
-        console.log(this.state.articleComments);
         }
         else{
             this.setState({articleComments:[]})
         }
-        console.log(this.state.articleComments)
     }
 
     render() {
-      console.log(this.props.user);
       const user = this.props.user;
         return (
             <div id="article-full-container" >
@@ -72,7 +66,3 @@ this.getComments(this.props.article.id);
         );
     }
 }
-
-/* ArticleView.defaultProps = {
-    article: {}
-} */

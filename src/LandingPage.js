@@ -5,7 +5,6 @@ import LandingPageArticle from "./LandingPageArticle.js";
 
 export default class LandingPage extends React.Component {
   render() {
-    console.log(this.props.lpArticle);
     return (
       <section class="LandingContainer">
         <div><h1 className="lpHeaderText">theConsole</h1>

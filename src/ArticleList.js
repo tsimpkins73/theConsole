@@ -13,7 +13,6 @@ export default class ArticleList extends React.Component {
     }
 
     fetchData(categoryId) {
-        console.log(categoryId, '33333');
         fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
             .then(response => response.json())
             .then((articles) => { this.setState({ articles, categoryId: categoryId }); });
@@ -21,13 +20,11 @@ export default class ArticleList extends React.Component {
 
 fetchSearchArticles(searchterm) {
     let searchArticles = this.props.articles.filter(article => article.text.indexOf(searchterm) >= 0);
-    console.log(searchArticles, this.props.articles, '////////');
     this.setState({ articles: searchArticles });
     this.props.history.push('/dashboard');
 }    
 
     componentDidMount() {
-        console.log(this.props.categoryId, this.props.articles)
         if (this.props.categoryId) {
             this.fetchData(this.props.categoryId);
         }
@@ -44,14 +41,12 @@ fetchSearchArticles(searchterm) {
             this.setState({articles: newProps.articles})
         }
      if (this.props.searchterm !== newProps.searchterm) {
-            console.log(newProps.searchterm);
             this.fetchSearchArticles(newProps.searchterm);
         }
     }
 
     render() {
         let articles = this.state.articles;
-        console.log(articles, '22222');
         return (
             <section id="ArticleList">
                 {articles.map(function (article) {
