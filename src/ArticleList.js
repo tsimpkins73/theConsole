@@ -31,6 +31,9 @@ fetchSearchArticles(searchterm) {
         if (this.props.categoryId) {
             this.fetchData(this.props.categoryId);
         }
+        else{
+            this.setState({articles: this.props.articles});
+        }
     }
     
     componentWillReceiveProps(newProps){
