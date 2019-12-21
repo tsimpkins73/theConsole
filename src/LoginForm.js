@@ -43,12 +43,11 @@ export default class LoginForm extends React.Component {
                             <label for="username" > Username </label>
                             <input type="text" name="username"/>
                             <label for="password" > Password </label>
-                            <input type="text" name="password"/>
+                            <input type="password" name="password"/>
                             <br />
                         </div>
                         <div>
-                            <button >Submit</button>
-                            <Link to="/forgot-password"><button>Forgot Password</button></Link>
+                            <button >Submit</button> 
                             <Link to="/sign-up"><button>Sign Up</button></Link>
                         </div>
                     </form>
