@@ -111,7 +111,7 @@ h3 {
 #Header::after {
     width: 100vw;
     content: "";
-    background-image: url("/headerImage.jpeg");
+    background-image: url("/public/headerImage.jpeg");
     background-size: cover;
     opacity: 0.5;
     top: 0;
