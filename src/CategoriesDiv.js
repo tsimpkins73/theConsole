@@ -8,6 +8,7 @@ export default class CategoriesDiv extends React.Component {
 
         return (
             <div id="categoriesDiv">
+                <h1 id="sidebarHeadline">Categories</h1>
                 {categoriesArray.map(function (category) {
                     return <CategoriesLink category={category} />
                 })}

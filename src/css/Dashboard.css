@@ -1,5 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Sulphur+Point&display=swap');
 
+@media screen and (max-width: 700px) {
+  h1#headerTitle {
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2em;
+}
+
+section#navbar {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+section#contenContainer{
+    display: block;
+}
+
+section#ArticleList{
+    display: block;
+    z-index: 5;
+}
+
+section#article{
+    display: block;
+    padding: 5%;
+    z-index: 5;
+}
+
+}
+
 
 * {
     height: 100%;
@@ -12,18 +41,20 @@ body {
     margin-left: auto;
     margin-right: auto;
     vertical-align: middle;
-        align-items: center;
+    align-items: center;
     justify-content: center;
     padding: 0;
     text-align: center;
     background: white;
 }
-header{
+
+header {
     margin: auto;
     padding: 3em;
 
 }
-#headerTitle{
+
+#headerTitle {
     font-family: 'Roboto Mono', monospace;
     font-size: 4em;
     text-align: left;
@@ -32,10 +63,23 @@ header{
     color: rgb(117, 233, 233)
 }
 
-#dashboardContainer, main{
+#dashboardContainer,
+main {
     width: 100vw;
     height: auto;
-    display: inline-block;
+    display: block;
+}
+
+#contenContainer {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-grid;
+    grid-template-columns: 3fr 1fr;
+    grid-row-gap: 0;
+    grid-column-gap: 0;
 }
 
 div {
@@ -45,35 +89,46 @@ div {
     display: block;
 }
 
-#ArticleList{
-    position: absolute;
-    width: 79%;
-    height: auto;
-    left: 0;
-    margin: 0;
-   
-}
 
-h3{
+h3 {
     height: auto;
 }
 
 #Header {
-    width: 100%;
+    width: auto;
     height: 200px;
     margin: 0;
-top:0;
-color: white;
-background-image: url("/src/assets/images/headerImage.jpg");
-background-size: cover; 
+    top: 0;
+    color: white;
+    padding: 2%;
 }
 
-h1{
+#navLink{
+    color: white;
+    padding: 2%;
+}
+
+#Header::after {
+    width: 100vw;
+    content: "";
+    background-image: url("/headerImage.jpeg");
+    background-size: cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+h1 {
     height: auto;
 }
 
 navbar {
     width: 100%;
+    grid-template-columns: 2fr 2fr 2fr;
 }
 
 #navbar {
@@ -81,5 +136,8 @@ navbar {
     height: 30px;
     position: sticky;
     background: rgb(65, 65, 65);
-color: white;
+    color: white;
+   display: inline-block;
+   padding-top: 1%;
+   padding-bottom: 1%;
 }

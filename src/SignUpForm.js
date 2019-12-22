@@ -38,15 +38,19 @@ export default class SignUpForm extends React.Component {
             <section class="LandingContainer">
                 <div class="SignUpForm"><h1 className="lpHeaderText">Please Sign Up to Join theConsole</h1>
                     <form className='RegistrationForm' onSubmit={this.handleSubmit} >
-                        <label for="Name">Name</label>
+                       <div class='formLine'> <label for="Name">Name</label>
                         <input type="text" name="name" />
-                        <label for="Username">Email</label>
-                        <input type="text" name="username" />
-                        <label for="Password">Password</label>
+                        </div>
+                        <div class='formLine'> <label for="Username">Email</label>
+                        <input type="email" name="username" />
+                        </div>
+                        <div class='formLine'> <label for="Password">Password</label>
                         <input type="text" name="password" /> 
+                        </div>
                     <div>
-                     <button className="lpButton" type="submit">Submit</button>
+                    <div class='formLine'> <button className="lpButton" type="submit">Submit</button>
                         <Link to="/login"><button className="lpButton">Login</button></Link>
+                        </div>
                         </div>
                 </form>
                 </ div>

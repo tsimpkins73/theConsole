@@ -27,6 +27,7 @@ export default class LoginForm extends React.Component {
           })
           .catch(res => {
             this.setState({ error: res.error })
+
           })
       }
     
@@ -49,6 +50,7 @@ export default class LoginForm extends React.Component {
                         <div>
                             <button >Submit</button> 
                             <Link to="/sign-up"><button>Sign Up</button></Link>
+                            <div>{this.state.error}</div>
                         </div>
                     </form>
                 </div>

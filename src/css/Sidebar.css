@@ -1,3 +1,25 @@
+@media screen and (max-width: 700px) {
+    section#sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      top: 0;
+    }
+    section#sidebar a {float: left;}
+    section.content {margin-left: 0;}
+  }
+
+  
+  @media screen and (max-width: 400px) {
+    section#sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  
+
 * {
     height: 100%;
     padding: 0;
@@ -20,8 +42,7 @@ h3{
 }
 
 #sidebar {
-    position: absolute;
-    width: 21%;
+    width: auto;
     height: auto;
     padding: 10px;
     padding-right: 2%;
@@ -30,17 +51,24 @@ h3{
     color: white;
     text-decoration: none;
     background: white;
+    
 }
 
 #searchDiv, #favoritesDiv, #categoriesDiv, #tagsDiv {
-    width: 100%;
-    height: 180px;
+    width: auto;
+    height: auto;
     margin: 0;
-    padding: 20px;
+    padding-right: 10%;
 
 }
 
 input{
     height: auto;
     width: auto;
+}
+
+#sidebarHeadline{
+    color: black;
+    font-size: 1.5em;
+    text-decoration-line: underline;
 }

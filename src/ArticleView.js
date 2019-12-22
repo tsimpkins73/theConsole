@@ -44,12 +44,21 @@ this.getComments(this.props.article.id);
         }
     }
 
+    componentWillReceiveProps(newProps){
+        if (newProps.article.id !== this.props.article.id) {
+            this.getComments(this.props.article.id);
+        }
+        else{
+            this.setState({articleComments:[]})
+        }
+    }
+
     render() {
       const user = this.props.user;
         return (
             <div id="article-full-container" >
                 <section id="article-Full">
-                    <div id="articleImage"><img src={this.props.article.image} /></div>
+                    <div id="articleImage"><img id="previewImage"  src={this.props.article.image} /></div>
                     <div id="articleText">
                         <h3 id="articleText">{this.props.article.headline}</h3>
                         <p id="articleText">{this.props.article.text}</p>

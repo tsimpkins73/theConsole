@@ -4,7 +4,6 @@ import LandingPage from './LandingPage.js'
 import LoginForm from './LoginForm.js'
 import SignUpForm from './SignUpForm.js'
 import Dashboard from './Dashboard.js'
-import ForgotPasswordForm from './ForgotPasswordForm.js'
 import { API_BASE_URL } from './config'
 
 
@@ -32,7 +31,9 @@ export default class App extends React.Component {
       comment
     ])
   } */
-
+clearUser = () => {
+  this.setState({user:{}});
+}
 
   handleFavoriteButton = (article) => {
     article.favorite = !article.favorite;
@@ -89,8 +90,7 @@ export default class App extends React.Component {
           <Route exact path={'/'} render={() => <LandingPage lpArticle={lpArticle} />} />
           <Route path={'/login'} render={(props) => <LoginForm onLoginSuccess={this.onLoginSuccess} {...props} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
-          <Route path={'/forgot-password'} component={ForgotPasswordForm} />
-          <Route path={'/dashboard'} render={(props) => <Dashboard {...props} articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} user={this.state.user} />} />
+          <Route path={'/dashboard'} render={(props) => <Dashboard {...props} articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} user={this.state.user} clearUser={this.clearUser} />} />
         </BrowserRouter>
       </main>
     );

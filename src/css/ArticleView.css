@@ -7,7 +7,7 @@ button{
     height: auto;
 }
 #articleImage {
-    width: 90%;
+    width: auto;
     margin: 10px;
     height: auto;
     margin-top: 5%;
@@ -25,7 +25,7 @@ button{
 }
 
 #article-full-container {
-    width: 76%;
+    width: auto;
     height: 100%;
     left: 0;
     margin: 0;
@@ -33,12 +33,12 @@ button{
 }
 
 #article {
-    width: 100%;
+    width: auto;
     height: auto;
-    margin: 2%;
+    margin-top: 2%;
     vertical-align: middle;
-    display: inline-flex;
-    padding: 5%;
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 #article-Full {
@@ -51,17 +51,6 @@ button{
     background: white;
 }
 
-<<<<<<< HEAD
-#lpArticle {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border: 1px solid black;
-    vertical-align: middle;
-    display: inline-block;
-}
-=======
->>>>>>> f610f8885bfcb7fe5261292b033af5641e0aa0ec
 
 #articleText {
     width: 90%;
@@ -100,9 +89,9 @@ button{
 
 #articleComment {
     height: auto;
-    background: gray;
+    background: rgb(180, 180, 180);
     text-align: left;
-    padding: 10px;
+    padding: 5%;
 }
 
 #addComment {
