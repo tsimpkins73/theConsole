@@ -35,6 +35,8 @@ body{
     font-family: 'Roboto Mono', monospace;
     color: rgb(117, 233, 233);
     background-color: black;
+    width: 100px;
+    height: 100%;
 }
 
 .lpHeaderText{

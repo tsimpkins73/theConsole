@@ -21,13 +21,10 @@ export default class Dashboard extends React.Component {
                 <Link id='navLink' onClick={this.handleLogoutClick} to='/'>
                     Logout
         </Link>
-                <Link id='navLink' to='/sign-up'>
-                    Register
+                <Link id='navLink' to='/dashboard'>
+                    Home
         </Link>
 
-                <Link id='navLink' to='/login'>
-                    Log in
-        </Link>
             </section><section id="contenContainer">
                 <Route exact path={'/dashboard'} render={(props) => { return <ArticleList articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />
                 <Route path={'/dashboard/article/:id'} render={(props) => {

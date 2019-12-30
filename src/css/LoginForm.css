@@ -34,7 +34,9 @@ div{
 }
 
 .LoginForm{
-display: block;
+    display: inline-grid;
+    height: 70vh;
+    grid-template-rows: 1fr 2fr;
 }
 
 .button {
@@ -52,4 +54,8 @@ display: block;
     margin-bottom: 5%;
     width: 90%;
     height: 100px;
+}
+
+.loginFormHeader{
+    width: auto;
 }

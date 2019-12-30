@@ -38,21 +38,24 @@ export default class SignUpForm extends React.Component {
             <section class="LandingContainer">
                 <div class="SignUpForm"><h1 className="lpHeaderText">Please Sign Up to Join theConsole</h1>
                     <form className='RegistrationForm' onSubmit={this.handleSubmit} >
-                       <div class='formLine'> <label for="Name">Name</label>
-                        <input type="text" name="name" />
+                        <div class='formLine'> <label for="Name">Name</label>
+                            <input type="text" name="name" />
                         </div>
                         <div class='formLine'> <label for="Username">Email</label>
-                        <input type="email" name="username" />
+                            <input type="email" name="username" />
                         </div>
                         <div class='formLine'> <label for="Password">Password</label>
-                        <input type="text" name="password" /> 
+                            <input type="text" name="password" />
                         </div>
-                    <div>
-                    <div class='formLine'> <button className="lpButton" type="submit">Submit</button>
-                        <Link to="/login"><button className="lpButton">Login</button></Link>
+                        <p id="passwordDesc" >Password must be at least 8 characters, and
+    must contain one upper case, lower case, number and special character
+</p>
+                        <div class='signupButtons'> <button className="lpButton" type="submit">Submit</button>
+                            <Link to="/login"><button className="lpButton">Login</button></Link>
                         </div>
-                        </div>
-                </form>
+
+                    </form>
+                    <div>{this.state.error}</div>
                 </ div>
             </ section>
         );
