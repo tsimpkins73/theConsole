@@ -45,14 +45,29 @@ fetchSearchArticles(searchterm) {
         }
     }
 
+isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
+
     render() {
         let articles = this.state.articles;
-        return (
+        let handleArticleButton = this.props.handleArticleButton
+        if(this.isEmpty(articles)) {return (
+            <section id="ArticleList">
+               <h1 id="noArticlesAnnouncement">There are no articles for this category</h1>;
+                            </section>
+        );}
+        
+        else {return (
             <section id="ArticleList">
                 {articles.map(function (article) {
-                    return <ArticlePreview article={article} />;
+                    return <ArticlePreview handleArticleButton={handleArticleButton} article={article} />;
                 })}
             </section>
-        );
+        );}
     }
 }

@@ -54,6 +54,25 @@ const ArticleService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+  },
+
+
+  deleteComment(commentId) {
+    return fetch(`${API_BASE_URL}/comments`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        commentId: commentId
+      }),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
   }
 }
 

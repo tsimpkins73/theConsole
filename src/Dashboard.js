@@ -10,7 +10,6 @@ export default class Dashboard extends React.Component {
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         this.props.clearUser();
-        console.log(this.props.user)
     }
 
 
@@ -26,17 +25,18 @@ export default class Dashboard extends React.Component {
         </Link>
 
             </section><section id="contenContainer">
-                <Route exact path={'/dashboard'} render={(props) => { return <ArticleList articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />
+                <Route exact path={'/dashboard'} render={(props) => { return <ArticleList handleArticleButton={this.props.handleArticleButton} articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />
                 <Route path={'/dashboard/article/:id'} render={(props) => {
                     let articleId = props.match.params.id
-                    let article = (this.props.articles.find(a => (a.id == articleId)))
-                    return <ArticleView article={article} articleId={articleId} setComment={this.props.setComment} user={this.props.user} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
+                    let articles = this.props.articles
+                    let article = (articles.find(a => (a.id == articleId)))
+                    return <ArticleView currentArticle={this.props.currentArticle} users={this.props.users} articles={this.props.articles} article={article} articleId={articleId} setComment={this.props.setComment} currentUser={this.props.currentUser} handleArticleButton={this.props.handleArticleButton} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
                 }} />
                 <Route exact path={'/dashboard/:categoryId'} render={(props) => {
-                    return <ArticleList categoryId={props.match.params.categoryId} />
+                    return <ArticleList handleArticleButton={this.props.handleArticleButton} categoryId={props.match.params.categoryId} />
                 }} />
                 <Route exact path={'/dashboard/search/:searchterm'} render={(props) => {
-                    return <ArticleList searchterm={props.match.params.searchterm} />
+                    return <ArticleList handleArticleButton={this.props.handleArticleButton} searchterm={props.match.params.searchterm} />
                 }} />
                 <Sidebar {...this.props} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
             </section>

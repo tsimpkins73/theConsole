@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import UserService from './services/user-service'
 
 export default class LoginForm extends React.Component {
-  /*  static defaultProps = {
-       onLoginSuccess: () => {}
-     } */
-
   state = { error: null }
 
   handleSubmitJwtAuth = ev => {

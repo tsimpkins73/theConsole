@@ -19,3 +19,9 @@
     display: flex;
     object-fit: cover;
 }
+
+#noArticlesAnnouncement{
+    font-size: 2em;
+    padding: 5%;
+    margin: 2.5em;
+}

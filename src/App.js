@@ -20,26 +20,29 @@ export default class App extends React.Component {
       categoryArticles: [],
       searchterm: '',
       searchArticles: [],
-      user: {},
-      allUsers: [],
+      currentUser: {},
+      users: {},
     };
   }
 
-/*   setComment= (comment) => {
-    this.setState([
-      ...this.state.comments,
-      comment
-    ])
-  } */
 clearUser = () => {
-  this.setState({user:{}});
+  this.setState({currentUser:{}});
 }
+
 
   handleFavoriteButton = (article) => {
     article.favorite = !article.favorite;
     this.setState({
       articles: this.state.articles
     });
+  }
+
+  handleArticleButton = (article_id) => {
+    let articleId = article_id
+    let articles = this.state.articles
+    let article = (articles.find(a => (a.id == articleId)))
+    console.log(article);
+    this.setState({ currentArticle: article });
   }
 
   handleSearchForm = (event) => {
@@ -51,15 +54,14 @@ clearUser = () => {
   }
 
   onLoginSuccess = (username) => {
+    console.log(username);
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
-      .then((user) => {
-        this.setState({ user });
-      });
+      .then((currentUser) => { this.setState({ currentUser });  });
   }
 
   getArticlesByCategory = (category) => {
-    let selectedCategory = this.state.categories.find(c => (c.name == category))
+    let selectedCategory = this.state.categories.find(c => (c.name === category))
     let categoryID = selectedCategory.id
     fetch(`${API_BASE_URL}/articles/category/${categoryID}`)
       .then(response => response.json())
@@ -77,20 +79,29 @@ clearUser = () => {
       .then((categories) => { this.setState({ categories }); });
   }
 
+  getUsers() {
+    fetch(`${API_BASE_URL}/users`)
+   .then(response => response.json())
+   .then((users) => { this.setState({ users }); });
+}
+
   componentDidMount() {
     this.getArticles();
     this.getCategories();
+    this.getUsers();
   }
   
     render() {
     const lpArticle = this.state.articles[0];
+    console.log(this.state.users);
+    console.log(this.state.currentUser);
     return (
       <main className='App'>
         <BrowserRouter>
           <Route exact path={'/'} render={() => <LandingPage lpArticle={lpArticle} />} />
           <Route path={'/login'} render={(props) => <LoginForm onLoginSuccess={this.onLoginSuccess} {...props} />} />
           <Route path={'/sign-up'} component={SignUpForm} />
-          <Route path={'/dashboard'} render={(props) => <Dashboard {...props} articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} user={this.state.user} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} user={this.state.user} clearUser={this.clearUser} />} />
+          <Route path={'/dashboard'} render={(props) => <Dashboard {...props} handleArticleButton={this.handleArticleButton} users={this.state.users} articles={this.state.articles} setComment={this.setComment} searchterm={this.state.searchterm} currentUser={this.state.currentUser} categories={this.state.categories} handleSearchForm={this.handleSearchForm} handleFavoriteButton={this.handleFavoriteButton} clearUser={this.clearUser} currentArticle={this.state.currentArticle} />} />
         </BrowserRouter>
       </main>
     );

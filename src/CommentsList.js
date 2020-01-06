@@ -1,7 +1,5 @@
 import React from 'react'
-import { Route } from "react-router-dom";
 import CommentView from './CommentView.js'
-import AddCommentView from './AddCommentView.js'
 //import './CommentsList.css'
 
 export default class CommentsList extends React.Component {
@@ -11,10 +9,12 @@ export default class CommentsList extends React.Component {
     render() {
         const comments= this.props.articleComments;
         const users= this.props.users; 
+        const currentUser = this.props.currentUser;
+        const deleteComment = this.props.deleteComment;
         return (
         <div id="articleComments">
             {comments.map(function (comment) {
-                    return <CommentView comment={comment} users={users} />;
+                    return <CommentView  comment={comment} users={users} currentUser={currentUser} deleteComment={deleteComment} />;
                 })}
             </div>
                            );
