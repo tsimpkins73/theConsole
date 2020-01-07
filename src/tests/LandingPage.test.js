@@ -4,22 +4,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import ArticleList from '../ArticleList';
+import LandingPage from '../LandingPage';
 
 
 it('renders without crashing', () => {
 
-      let articles = [];
-      let handleArticleButton = []
+    let lpArticle = [];
 
       const div = document.createElement('div');
-      ReactDOM.render( < BrowserRouter > < ArticleList articles = {
-          articles
-        }
-        handleArticleButton = {
-          handleArticleButton
-        }
-        />
+      ReactDOM.render( < BrowserRouter > <LandingPage lpArticle={lpArticle} />
         </BrowserRouter>, div);
 
 

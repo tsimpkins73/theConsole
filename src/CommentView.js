@@ -31,6 +31,8 @@ export default class CommentView extends React.Component {
         let user = this.state.user
         let userId = this.state.userId
         let currentUserId = this.state.currentUserId
+        let comment = this.props.comment
+        let deleteComment= this.props.deleteComment
         console.log(user)
 
         if (userId === currentUserId) {
@@ -38,11 +40,11 @@ export default class CommentView extends React.Component {
                 <div id="commentContainer">
                     <div id="articleComment">
                         <div class="commentContent">
-                            <div class="commenterName"><h1 class="commentOwner">{this.user.name}</h1></div>
-                            <div class="commentText"><p>{this.props.comment.text}</p></div>
+                            <div class="commenterName"><h1 class="commentOwner">{user.name}</h1></div>
+                            <div class="commentText"><p>{comment.text}</p></div>
                         </div>
                         <div class="deleteComment">
-                            <button class="deleteCommentButton" onClick={() => { this.props.deleteComment(this.props.comment.id) }}>X</button>
+                            <button class="deleteCommentButton" onClick={() => { deleteComment(comment.id) }}>X</button>
                         </div>
 
                     </div>
@@ -56,8 +58,8 @@ export default class CommentView extends React.Component {
             <div id="commentContainer">
                 <div id="articleComment">
                     <div class="commentContent">
-                        <div class="commenterName"><h1 class="commentOwner">{this.user.name}</h1></div>
-                        <div class="commentText"><p>{this.props.comment.text}</p></div>
+                        <div class="commenterName"><h1 class="commentOwner">{user.name}</h1></div>
+                        <div class="commentText"><p>{comment.text}</p></div>
                     </div>
                     <div class="deleteComment">
 

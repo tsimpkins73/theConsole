@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 export default class FavoritesLink extends React.Component {
     render() {
+        let favoriteID = this.props.favoriteID
+        let headline = this.props.headline
         return (
-            <Link to={"/dashboard/article/" + this.props.favoriteID}><h3>{this.props.headline}</h3></Link>
+            <Link to={"/dashboard/article/" + favoriteID}><h3>{headline}</h3></Link>
         );
     }
 }

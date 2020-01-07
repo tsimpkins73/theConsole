@@ -4,22 +4,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import ArticleList from '../ArticleList';
+import FavoritesDiv from '../FavoritesDiv';
 
 
 it('renders without crashing', () => {
 
-      let articles = [];
-      let handleArticleButton = []
+  const favoritesTrue = [];
 
       const div = document.createElement('div');
-      ReactDOM.render( < BrowserRouter > < ArticleList articles = {
-          articles
-        }
-        handleArticleButton = {
-          handleArticleButton
-        }
-        />
+      ReactDOM.render( < BrowserRouter > <FavoritesDiv favoritesTrue={favoritesTrue} />
         </BrowserRouter>, div);
 
 

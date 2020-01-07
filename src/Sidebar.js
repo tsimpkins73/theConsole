@@ -4,11 +4,17 @@ import FavoritesDiv from './FavoritesDiv.js'
 import CategoriesDiv from './CategoriesDiv.js'
 
 export default class Sidebar extends React.Component {
-    render() {
+ 
+  
+  render() {
+    let articles= this.props.articles;
+    let categories= this.props.categories;
+    let handleSearchForm=this.props.handleSearchForm;
+    
         return (<section id="sidebar">
-        <SearchDiv {...this.props} articles={this.props.articles}  handleSearchForm={this.props.handleSearchForm}/>
-        <FavoritesDiv articles={this.props.articles} />
-        <CategoriesDiv categories={this.props.categories} />
+        <SearchDiv {...this.props} articles={articles}  handleSearchForm={handleSearchForm}/>
+        <FavoritesDiv articles={articles} />
+        <CategoriesDiv categories={categories} />
       </section>
         );
     }

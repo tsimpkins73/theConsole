@@ -5,6 +5,7 @@ import LandingPageArticle from "./LandingPageArticle.js";
 
 export default class LandingPage extends React.Component {
   render() {
+    let lpArticle= this.props.lpArticle
     return (
       <section class="LandingContainer">
         <div><h1 className="lpHeaderText">theConsole</h1>
@@ -16,7 +17,7 @@ export default class LandingPage extends React.Component {
             <Link to="/login"><button className="lpButton">Login</button></Link>
           </div>
           <div class="lpArticle-container">
-            { this.props.lpArticle?<LandingPageArticle lpArticle={this.props.lpArticle} />:null}
+            { lpArticle?<LandingPageArticle lpArticle={lpArticle} />:null}
           </div>
         </div>
       </section>
