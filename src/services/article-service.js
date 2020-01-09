@@ -58,7 +58,7 @@ const ArticleService = {
 
 
   deleteComment(commentId) {
-    return fetch(`${API_BASE_URL}/comments`, {
+    return fetch(`${API_BASE_URL}/comments/${commentId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

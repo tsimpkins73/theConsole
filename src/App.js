@@ -21,12 +21,16 @@ export default class App extends React.Component {
       searchterm: '',
       searchArticles: [],
       currentUser: {},
-      users: {},
+      users: [],
+      currentArticle:{}
     };
   }
 
+
+
 clearUser = () => {
   this.setState({currentUser:{}});
+  localStorage["user"]= [" "];
 }
 
 
@@ -57,7 +61,10 @@ clearUser = () => {
     console.log(username);
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
-      .then((currentUser) => { this.setState({ currentUser });  });
+      .then((currentUser) => { 
+        this.setState({ currentUser }); 
+        localStorage["user"]= JSON.stringify(currentUser)
+     });
   }
 
   getArticlesByCategory = (category) => {
@@ -89,12 +96,16 @@ clearUser = () => {
     this.getArticles();
     this.getCategories();
     this.getUsers();
+    if(localStorage["user"]){
+      const user = JSON.parse(localStorage["user"]);
+      this.setState({currentUser: user});
+    }
   }
   
     render() {
     const lpArticle = this.state.articles[0];
     console.log(this.state.users);
-    console.log(this.state.currentUser);
+    console.log(this.state.articles);
     return (
       <main className='App'>
         <BrowserRouter>

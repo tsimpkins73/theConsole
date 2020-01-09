@@ -13,7 +13,7 @@ export default class Sidebar extends React.Component {
     
         return (<section id="sidebar">
         <SearchDiv {...this.props} articles={articles}  handleSearchForm={handleSearchForm}/>
-        <FavoritesDiv articles={articles} />
+        <FavoritesDiv articles={articles} handleArticleButton={this.props.handleArticleButton}/>
         <CategoriesDiv categories={categories} />
       </section>
         );

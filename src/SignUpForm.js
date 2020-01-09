@@ -34,10 +34,11 @@ export default class SignUpForm extends React.Component {
     }
 
     render() {
+        let handleSubmit=this.handleSubmit;
         return (
             <section class="LandingContainer">
                 <div class="SignUpForm"><h1 className="lpHeaderText">Please Sign Up to Join theConsole</h1>
-                    <form className='RegistrationForm' onSubmit={this.handleSubmit} >
+                    <form className='RegistrationForm' onSubmit={handleSubmit} >
                         <div class='formLine'> <label for="Name">Name</label>
                             <input type="text" name="name" />
                         </div>

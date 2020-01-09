@@ -5,20 +5,30 @@ export default class CommentView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
-            userId: [],
-            currentUserId: []
+            user: {},
+            userId: {},
+            currentUserId: {}
         };
     }
 
     setValues = () => {
+
         let users = this.props.users;
-        let user = users.filter(user => (user.id === this.props.comment.user_id));
+        if(users){
+        let user = users.find(user => (user.id === this.props.comment.user_id));
         let userId = this.props.comment.user_id
-        let currentUserId = this.props.currentUser.id
+        if(this.props.currentUser){
+    let currentUserId = this.props.currentUser.id
+        this.setState({ user: user });
+        this.setState({ userId: userId });
+        this.setState({ currentUserId: currentUserId });}
+        else{
+            let currentUserId = {}
         this.setState({ user: user });
         this.setState({ userId: userId });
         this.setState({ currentUserId: currentUserId });
+        }
+        }
     }
 
 
@@ -26,15 +36,24 @@ export default class CommentView extends React.Component {
         this.setValues();
     }
 
+    componentWillReceiveProps() {
+     this.setValues();
+    }
+
 
     render() {
-        let user = this.state.user
+        let users = this.props.users;
+        let user = users.find(user => (user.id === this.props.comment.user_id)) || {};
         let userId = this.state.userId
-        let currentUserId = this.state.currentUserId
+        let currentUserId = this.state.currentUserId;
         let comment = this.props.comment
         let deleteComment= this.props.deleteComment
         console.log(user)
-
+        console.log(userId)
+        console.log(comment)
+        console.log(currentUserId)
+        console.warn(this.props.users);
+        
         if (userId === currentUserId) {
             return (
                 <div id="commentContainer">

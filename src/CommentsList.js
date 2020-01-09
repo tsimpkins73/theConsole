@@ -8,7 +8,7 @@ export default class CommentsList extends React.Component {
     
     render() {
         const comments= this.props.articleComments;
-        const users= this.props.users; 
+        let users= this.props.users; 
         const currentUser = this.props.currentUser;
         const deleteComment = this.props.deleteComment;
         return (

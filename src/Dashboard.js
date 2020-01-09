@@ -30,7 +30,10 @@ export default class Dashboard extends React.Component {
                     let articleId = props.match.params.id
                     let articles = this.props.articles
                     let article = (articles.find(a => (a.id == articleId)))
-                    return <ArticleView currentArticle={this.props.currentArticle} users={this.props.users} articles={this.props.articles} article={article} articleId={articleId} setComment={this.props.setComment} currentUser={this.props.currentUser} handleArticleButton={this.props.handleArticleButton} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
+                    console.log(article);
+                    console.log(articles);
+                    console.log(articleId);
+                    return <ArticleView currentArticle={this.props.currentArticle} users={this.props.users} articles={articles} article={article} articleId={articleId} setComment={this.props.setComment} currentUser={this.props.currentUser} handleArticleButton={this.props.handleArticleButton} handleFavoriteButton={() => { this.props.handleFavoriteButton(article) }} />
                 }} />
                 <Route exact path={'/dashboard/:categoryId'} render={(props) => {
                     return <ArticleList handleArticleButton={this.props.handleArticleButton} categoryId={props.match.params.categoryId} />
@@ -38,7 +41,7 @@ export default class Dashboard extends React.Component {
                 <Route exact path={'/dashboard/search/:searchterm'} render={(props) => {
                     return <ArticleList handleArticleButton={this.props.handleArticleButton} searchterm={props.match.params.searchterm} />
                 }} />
-                <Sidebar {...this.props} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
+                <Sidebar {...this.props} handleArticleButton={this.props.handleArticleButton} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} categories={this.props.categories} />
             </section>
         </section>
         );
