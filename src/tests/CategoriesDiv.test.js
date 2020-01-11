@@ -1,17 +1,11 @@
 import React from 'react';
-
-
-import ReactDOM from 'react-dom';
-
-import { Link } from 'react-router-dom';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
 import CategoriesDiv from '../CategoriesDiv';
 
 
-it('renders without crashing', () => {
-  let categoriesArray = []
-  const div = document.createElement('div');
-  ReactDOM.render(<CategoriesDiv categoriesArray={categoriesArray} />, div);
-
-
-  ReactDOM.unmountComponentAtNode(div);
-});
+it.only('renders without crashing', () => {
+        shallow(<CategoriesDiv />);
+      });

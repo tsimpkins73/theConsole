@@ -1,20 +1,13 @@
 import React from 'react';
-
-
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
 import FavoritesDiv from '../FavoritesDiv';
 
 
-it('renders without crashing', () => {
-
-  const favoritesTrue = [];
-
-      const div = document.createElement('div');
-      ReactDOM.render( < BrowserRouter > <FavoritesDiv favoritesTrue={favoritesTrue} />
-        </BrowserRouter>, div);
-
-
-        ReactDOM.unmountComponentAtNode(div);
+it.only('renders without crashing', () => {
+  let articles= {}
+  let favoritesTrue ={};
+        shallow(<FavoritesDiv articles= {articles} favoritesTrue ={favoritesTrue} />);
       });

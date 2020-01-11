@@ -3,7 +3,8 @@ import FavoritesLink from './FavoritesLink.js'
 
 export default class FavoritesDiv extends React.Component {
     render() {
-       let favoritesTrue = this.props.articles.filter(article => article.favorite);
+        let articles= this.props.articles;
+       let favoritesTrue = articles.filter(article => article.favorite);
         let handleArticleButton=this.props.handleArticleButton;
         return (
             <div id="categoriesDiv">

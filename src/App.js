@@ -30,7 +30,7 @@ export default class App extends React.Component {
 
 clearUser = () => {
   this.setState({currentUser:{}});
-  localStorage["user"]= [" "];
+  localStorage["user"]= 'null';
 }
 
 
