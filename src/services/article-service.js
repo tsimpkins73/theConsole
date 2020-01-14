@@ -37,7 +37,7 @@ const ArticleService = {
           : res.json()
       )
   },
-  postComment(article_id, text) {
+  postComment(article_id, text, user_id) {
     return fetch(`${API_BASE_URL}/comments`, {
       method: 'POST',
       headers: {
@@ -46,7 +46,9 @@ const ArticleService = {
       },
       body: JSON.stringify({
         article_id: article_id,
-        text
+        text: text,
+        user_id: user_id,
+
       }),
     })
       .then(res =>

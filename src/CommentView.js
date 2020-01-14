@@ -58,12 +58,12 @@ export default class CommentView extends React.Component {
             return (
                 <div id="commentContainer">
                     <div id="articleComment">
-                        <div class="commentContent">
-                            <div class="commenterName"><h1 class="commentOwner">{user.name}</h1></div>
-                            <div class="commentText"><p>{comment.text}</p></div>
+                        <div className="commentContent">
+                            <div className="commenterName"><h1 className="commentOwner">{user.name}</h1></div>
+                            <div className="commentText"><p>{comment.text}</p></div>
                         </div>
-                        <div class="deleteComment">
-                            <button class="deleteCommentButton" onClick={() => { deleteComment(comment.id) }}>X</button>
+                        <div className="deleteComment">
+                            <button className="deleteCommentButton" onClick={() => { deleteComment(comment.id) }}>X</button>
                         </div>
 
                     </div>
@@ -76,11 +76,11 @@ export default class CommentView extends React.Component {
         return (
             <div id="commentContainer">
                 <div id="articleComment">
-                    <div class="commentContent">
-                        <div class="commenterName"><h1 class="commentOwner">{user.name}</h1></div>
-                        <div class="commentText"><p>{comment.text}</p></div>
+                    <div className="commentContent">
+                        <div className="commenterName"><h1 className="commentOwner">{user.name}</h1></div>
+                        <div className="commentText"><p>{comment.text}</p></div>
                     </div>
-                    <div class="deleteComment">
+                    <div className="deleteComment">
 
                     </div>
 
