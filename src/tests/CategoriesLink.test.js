@@ -8,7 +8,7 @@ import CategoriesLink from '../CategoriesLink';
 
 
 it('renders without crashing', () => {
-  let category = []
+  let category = {};
   const div = document.createElement('div');
   ReactDOM.render(<BrowserRouter> <CategoriesLink category={category} Link={Link} /></BrowserRouter>, div);
 
