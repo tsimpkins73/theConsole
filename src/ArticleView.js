@@ -13,7 +13,7 @@ export default class ArticleView extends React.Component {
             articleComments: [],
             articles: [],
             currentArticle: [],
-            user:{}
+            user: {}
         };
     }
 
@@ -23,9 +23,11 @@ export default class ArticleView extends React.Component {
             comment
         ]
         this.setState({ articleComments })
-        setTimeout( () =>{const getCommentList = document.getElementById("articleComments");
-        getCommentList.scrollIntoView({ block: "end" });}, 500);
-        
+        setTimeout(() => {
+            const getCommentList = document.getElementById("articleComments");
+            getCommentList.scrollIntoView({ block: "end" });
+        }, 500);
+
     }
 
     getComments = (article_id) => {
@@ -51,9 +53,8 @@ export default class ArticleView extends React.Component {
         if (this.props.articleId) {
             let currentArticle = this.props.currentArticle
             let user = this.props.user;
-            this.setState({ user: user }); 
+            this.setState({ user: user });
             this.setState({ currentArticle: currentArticle });
-            console.log(this.state.currentArticle);
             this.getComments(this.props.articleId);
 
         }
@@ -64,26 +65,22 @@ export default class ArticleView extends React.Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.articleId !== this.props.articleId) {
-            let currentArticle = newProps.currentArticle 
+            let currentArticle = newProps.currentArticle
             this.setState({ currentArticle: currentArticle });
             this.getComments(newProps.articleId);
         }
 
-    /*     else {
-            let currentArticle = this.props.currentArticle 
-            this.setState({ currentArticle: currentArticle });
-            this.setState({ articleComments: [] })
-        } */
+        /*     else {
+                let currentArticle = this.props.currentArticle 
+                this.setState({ currentArticle: currentArticle });
+                this.setState({ articleComments: [] })
+            } */
     }
 
     render() {
-        console.log(this.state.articleComments);
         let user = this.state.user;
-        let article= this.state.currentArticle;
-        if(!this.state.currentArticle.id){ article =  this.props.article || {}}
-        console.log(this.state.currentArticle)
-        console.log(this.props.article)
-        console.log(article);
+        let article = this.state.currentArticle;
+        if (!this.state.currentArticle.id) { article = this.props.article || {} }
         return (
             <div id="article-full-container" >
                 <section id="article-Full">

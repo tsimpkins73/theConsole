@@ -3,8 +3,8 @@ import CategoriesLink from './CategoriesLink.js'
 import './css/Sidebar.css'
 
 export default class CategoriesDiv extends React.Component {
-    static defaultProps={
-        categories:[]
+    static defaultProps = {
+        categories: []
     }
 
     render() {
