@@ -48,11 +48,6 @@ export default class CommentView extends React.Component {
         let currentUserId = this.state.currentUserId;
         let comment = this.props.comment
         let deleteComment= this.props.deleteComment
-        console.log(user)
-        console.log(userId)
-        console.log(comment)
-        console.log(currentUserId)
-        console.warn(this.props.users);
         
         if (userId === currentUserId) {
             return (

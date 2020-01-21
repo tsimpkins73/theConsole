@@ -65,7 +65,7 @@ isEmpty(obj) {
         else {return (
             <section id="ArticleList">
                 {articles.map(function (article) {
-                    return <ArticlePreview handleArticleButton={handleArticleButton} article={article} />;
+                    return <ArticlePreview handleArticleButton={handleArticleButton} article={article} currentUser={this.props.currentUser}/>;
                 })}
             </section>
         );}

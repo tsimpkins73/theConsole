@@ -53,7 +53,6 @@ export default class ArticleView extends React.Component {
             let user = this.props.user;
             this.setState({ user: user }); 
             this.setState({ currentArticle: currentArticle });
-            console.log(this.state.currentArticle);
             this.getComments(this.props.articleId);
 
         }
@@ -77,13 +76,9 @@ export default class ArticleView extends React.Component {
     }
 
     render() {
-        console.log(this.state.articleComments);
         let user = this.state.user;
         let article= this.state.currentArticle;
         if(!this.state.currentArticle.id){ article =  this.props.article || {}}
-        console.log(this.state.currentArticle)
-        console.log(this.props.article)
-        console.log(article);
         return (
             <div id="article-full-container" >
                 <section id="article-Full">
@@ -96,7 +91,7 @@ export default class ArticleView extends React.Component {
                         <button onClick={this.props.handleFavoriteButton}>Favorite</button>
                         <Link to={"/dashboard/article/" + article.id + "/comment"}><button>Add Comment</button></Link>
                     </div>
-                    <Route exact path={`/dashboard/article/${article.id}/comment`} render={() => <AddCommentView addComment={this.addComment} article={this.props.article} articleId={this.props.article.id} getComments={this.getComments} user={user} />} />
+                    <Route exact path={`/dashboard/article/${article.id}/comment`} render={() => <AddCommentView addComment={this.addComment} article={this.props.article} articleId={this.props.article.id} getComments={this.getComments} user={user} currentUser={this.props.currentUser} />} />
                     <CommentsList articleId={this.props.articleId} users={this.props.users} articleComments={this.state.articleComments} currentUser={this.props.currentUser} deleteComment={this.deleteComment} />
                 </section>
             </div >
