@@ -15,6 +15,7 @@ export default class AddCommentView extends React.Component {
             .then(this.props.addComment(comment))
             .catch(this.context.setError)
         getInput.value = ''
+        this.props.addComment();
 
     }
 
