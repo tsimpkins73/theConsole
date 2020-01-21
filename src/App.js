@@ -22,16 +22,16 @@ export default class App extends React.Component {
       searchArticles: [],
       currentUser: {},
       users: [],
-      currentArticle:{}
+      currentArticle: {}
     };
   }
 
 
 
-clearUser = () => {
-  this.setState({currentUser:{}});
-  localStorage["user"]= 'null';
-}
+  clearUser = () => {
+    this.setState({ currentUser: {} });
+    localStorage["user"] = 'null';
+  }
 
 
   handleFavoriteButton = (article) => {
@@ -45,7 +45,6 @@ clearUser = () => {
     let articleId = article_id
     let articles = this.state.articles
     let article = (articles.find(a => (a.id == articleId)))
-    console.log(article);
     this.setState({ currentArticle: article });
   }
 
@@ -58,13 +57,12 @@ clearUser = () => {
   }
 
   onLoginSuccess = (username) => {
-    console.log(username);
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
-      .then((currentUser) => { 
-        this.setState({ currentUser }); 
-        localStorage["user"]= JSON.stringify(currentUser)
-     });
+      .then((currentUser) => {
+        this.setState({ currentUser });
+        localStorage["user"] = JSON.stringify(currentUser)
+      });
   }
 
   getArticlesByCategory = (category) => {
@@ -80,32 +78,30 @@ clearUser = () => {
       .then(response => response.json())
       .then((articles) => { this.setState({ articles }); });
   }
-    getCategories() {
-       fetch(`${API_BASE_URL}/categories`)
+  getCategories() {
+    fetch(`${API_BASE_URL}/categories`)
       .then(response => response.json())
       .then((categories) => { this.setState({ categories }); });
   }
 
   getUsers() {
     fetch(`${API_BASE_URL}/users`)
-   .then(response => response.json())
-   .then((users) => { this.setState({ users }); });
-}
+      .then(response => response.json())
+      .then((users) => { this.setState({ users }); });
+  }
 
   componentDidMount() {
     this.getArticles();
     this.getCategories();
     this.getUsers();
-    if(localStorage["user"]){
+    if (localStorage["user"]) {
       const user = JSON.parse(localStorage["user"]);
-      this.setState({currentUser: user});
+      this.setState({ currentUser: user });
     }
   }
-  
-    render() {
+
+  render() {
     const lpArticle = this.state.articles[0];
-    console.log(this.state.users);
-    console.log(this.state.articles);
     return (
       <main className='App'>
         <BrowserRouter>

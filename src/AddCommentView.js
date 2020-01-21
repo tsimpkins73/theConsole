@@ -1,7 +1,5 @@
-
 import React from 'react';
 import ArticleService from './services/article-service';
-//import './CommentView.css'
 
 export default class AddCommentView extends React.Component {
 

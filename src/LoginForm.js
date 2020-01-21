@@ -33,13 +33,13 @@ export default class LoginForm extends React.Component {
 
     return (
       <section className="LandingContainer">
-        <div className="LoginForm" > 
-        <div className="loginFormHeader">
-          <h1 className="lpHeaderText"> Welcome, Please Sign In! </h1>
-         <p> Guests, please login with 
+        <div className="LoginForm" >
+          <div className="loginFormHeader">
+            <h1 className="lpHeaderText"> Welcome, Please Sign In! </h1>
+            <p> Guests, please login with
            Username: GenBlanc and Password: Password34!</p>
-         </div>
-                    <form onSubmit={this.handleSubmitJwtAuth} className='RegistrationForm' >
+          </div>
+          <form onSubmit={this.handleSubmitJwtAuth} className='RegistrationForm' >
             <div className='formLine'>
               <label htmlFor="username" > Username </label>
               <input type="text" name="username" />

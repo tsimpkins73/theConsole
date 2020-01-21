@@ -34,7 +34,7 @@ export default class SignUpForm extends React.Component {
     }
 
     render() {
-        let handleSubmit=this.handleSubmit;
+        let handleSubmit = this.handleSubmit;
         return (
             <section className="LandingContainer">
                 <div className="SignUpForm"><h1 className="lpHeaderText">Please Sign Up to Join theConsole</h1>
@@ -46,7 +46,7 @@ export default class SignUpForm extends React.Component {
                             <input type="email" name="username" />
                         </div>
                         <div className='formLine'> <label htmlFor="Password">Password</label>
-                            <input type="text" name="password" />
+                            <input type="password" name="password" />
                         </div>
                         <p id="passwordDesc" >Password must be at least 8 characters, and
     must contain one upper case, lower case, number and special character

@@ -17,12 +17,8 @@ export default class Dashboard extends React.Component {
         return (<section id="dashboardContainer">
             <section id="Header"><h1 id="headerTitle">theConsole</h1></section>
             <section id="navbar">
-                <Link id='navLink' onClick={this.handleLogoutClick} to='/'>
-                    Logout
-        </Link>
-                <Link id='navLink' to='/dashboard'>
-                    Home
-        </Link>
+                <Link id='navLink' onClick={this.handleLogoutClick} to='/'>Logout</Link>
+                <Link id='navLink' to='/dashboard'>Home</Link>
 
             </section><section id="contenContainer">
                 <Route exact path={'/dashboard'} render={(props) => { return <ArticleList handleArticleButton={this.props.handleArticleButton} articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />

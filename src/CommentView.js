@@ -14,20 +14,21 @@ export default class CommentView extends React.Component {
     setValues = () => {
 
         let users = this.props.users;
-        if(users){
-        let user = users.find(user => (user.id === this.props.comment.user_id));
-        let userId = this.props.comment.user_id
-        if(this.props.currentUser){
-    let currentUserId = this.props.currentUser.id
-        this.setState({ user: user });
-        this.setState({ userId: userId });
-        this.setState({ currentUserId: currentUserId });}
-        else{
-            let currentUserId = {}
-        this.setState({ user: user });
-        this.setState({ userId: userId });
-        this.setState({ currentUserId: currentUserId });
-        }
+        if (users) {
+            let user = users.find(user => (user.id === this.props.comment.user_id));
+            let userId = this.props.comment.user_id
+            if (this.props.currentUser) {
+                let currentUserId = this.props.currentUser.id
+                this.setState({ user: user });
+                this.setState({ userId: userId });
+                this.setState({ currentUserId: currentUserId });
+            }
+            else {
+                let currentUserId = {}
+                this.setState({ user: user });
+                this.setState({ userId: userId });
+                this.setState({ currentUserId: currentUserId });
+            }
         }
     }
 
@@ -37,7 +38,7 @@ export default class CommentView extends React.Component {
     }
 
     componentWillReceiveProps() {
-     this.setValues();
+        this.setValues();
     }
 
 
