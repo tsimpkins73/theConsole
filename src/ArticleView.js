@@ -26,7 +26,7 @@ export default class ArticleView extends React.Component {
         setTimeout(() => {
             const getCommentList = document.getElementById("articleComments");
             getCommentList.scrollIntoView({ block: "end" });
-        }, 500);
+        }, 200);
 
     }
 
