@@ -15,8 +15,6 @@ export default class AddCommentView extends React.Component {
             .then(this.props.addComment(comment))
             .catch(this.context.setError)
         getInput.value = ''
-        const getCommentList = document.getElementById("articleComments");
-        getCommentList.scrollIntoView({ block: "end" }
     }
 
 
