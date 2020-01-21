@@ -55,7 +55,8 @@ export default class ArticleList extends React.Component {
 
     render() {
         let articles = this.state.articles;
-        let handleArticleButton = this.props.handleArticleButton
+        let handleArticleButton = this.props.handleArticleButton;
+        let currentUser= this.props.currentUser;
         if (this.isEmpty(articles)) {
             return (
                 <section id="ArticleList">
@@ -66,7 +67,7 @@ export default class ArticleList extends React.Component {
         else {return (
             <section id="ArticleList">
                 {articles.map(function (article) {
-                    return <ArticlePreview handleArticleButton={handleArticleButton} article={article} currentUser={this.props.currentUser}/>;
+                    return <ArticlePreview handleArticleButton={handleArticleButton} article={article} currentUser={currentUser}/>;
                 })}
             </section>
         );}
