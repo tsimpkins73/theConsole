@@ -62,6 +62,20 @@ h3{
 
 }
 
+.navbar-searchDiv, .navbar-favoritesDiv, .navbar-categoriesDiv {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding-right: 10%;
+font-size: inherit;
+color: white;
+display: inherit;
+}
+
+.navbar-favoritesDiv a, .navbar-categoriesDiv a {
+color: white;
+}
+
 input{
     height: auto;
     width: auto;

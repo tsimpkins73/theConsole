@@ -118,12 +118,6 @@ button {
     margin: 10px;
 }
 
-div {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    display: block;
-}
 
 .commentContent {
     grid-area: 1 / 1 / 3 / 2;

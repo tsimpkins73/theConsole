@@ -13,7 +13,9 @@ export default class Sidebar extends React.Component {
 
     return (<section id="sidebar">
       <SearchDiv {...this.props} articles={articles} handleSearchForm={handleSearchForm} />
+      <h1 id="sidebarHeadline">Favorites</h1>
       <FavoritesDiv articles={articles} handleArticleButton={this.props.handleArticleButton} />
+      <h1 id="sidebarHeadline">Categories</h1>
       <CategoriesDiv categories={categories} />
     </section>
     );

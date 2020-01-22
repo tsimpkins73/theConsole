@@ -26,12 +26,6 @@ body{
     vertical-align: middle;
 }
 
-div{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    display: block;
-}
 
 .LoginForm{
     display: inline-grid;

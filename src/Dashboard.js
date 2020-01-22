@@ -3,24 +3,65 @@ import { Route, Link, } from "react-router-dom";
 import Sidebar from './Sidebar.js'
 import ArticleList from './ArticleList.js'
 import ArticleView from './ArticleView.js'
+import SearchDiv from './SearchDiv.js'
+import NavbarFavoritesDiv from './NavbarFavoritesDiv.js'
+import NavbarCategoriesDiv from './NavbarCategoriesDiv.js'
 import './css/Dashboard.css'
 import TokenService from './services/token-service'
 
 export default class Dashboard extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+    
+        this.state = {
+        menuIsActive: true,
+        favoritesIsActive: true,
+        categoriesIsActive: true,
+        };
+      }
+    
+
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         this.props.clearUser();
     }
 
+    mobileNavbarReveal = (event) => {
+        event.preventDefault();
+      this.setState({menuIsActive: !this.state.menuIsActive,});
+      }
+
+ favoritesReveal = (event) => {
+              event.preventDefault();
+            this.setState({favoritesIsActive: !this.state.favoritesIsActive,});
+            }
+
+            categoriesReveal = (event) => {
+                event.preventDefault();
+              this.setState({categoriesIsActive: !this.state.categoriesIsActive,});
+              }
+
 
     render() {
         return (<section id="dashboardContainer">
             <section id="Header"><h1 id="headerTitle">theConsole</h1></section>
-            <section id="navbar">
+            <section className={(this.state.menuIsActive) ? 'mobile-navbar' : 'hidden'} onClick={this. mobileNavbarReveal}><h2>Menu</h2></section>
+            <section className={(this.state.menuIsActive) ? 'hidden' : 'mobile-navbar'}>
+                <h2 onClick={this. mobileNavbarReveal}>-</h2>
+                <h2><Link id='navLink' onClick={this.handleLogoutClick} to='/'>Logout</Link></h2>
+                <h2><Link id='navLink' to='/dashboard'>Home</Link></h2>
+                <SearchDiv {...this.props} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} />
+                <h2 className="navbarFavorites" onClick={this.favoritesReveal}>Favorites</h2>
+      <NavbarFavoritesDiv isActive={this.state.favoritesIsActive} articles={this.props.articles} handleArticleButton={this.props.handleArticleButton} />
+      <h2 onClick={this.categoriesReveal}>Categories</h2>
+      <NavbarCategoriesDiv isActive={this.state.categoriesIsActive} categories={this.props.categories} />
+            </section>
+            <section id="desktop-navbar">
                 <Link id='navLink' onClick={this.handleLogoutClick} to='/'>Logout</Link>
                 <Link id='navLink' to='/dashboard'>Home</Link>
 
-            </section><section id="contenContainer">
+            </section>
+            <section id="contenContainer">
                 <Route exact path={'/dashboard'} render={(props) => { return <ArticleList handleArticleButton={this.props.handleArticleButton} articles={this.props.articles} searchterm={this.props.searchterm} history={this.props.history} /> }} />
                 <Route path={'/dashboard/article/:id'} render={(props) => {
                     let articleId = props.match.params.id
