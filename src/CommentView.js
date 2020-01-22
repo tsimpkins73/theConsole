@@ -44,7 +44,7 @@ export default class CommentView extends React.Component {
 
     render() {
         let users = this.props.users;
-        let user = this.state.users || {};
+        let user = this.state.user || {};
         let userId = this.state.userId
         let currentUserId = this.state.currentUserId;
         let comment = this.props.comment
