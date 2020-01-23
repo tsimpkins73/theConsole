@@ -17,6 +17,7 @@ export default class ArticleView extends React.Component {
         };
     }
 
+ /* These functions are to manipulate the comments in state and the API */    
     addComment = () => {
         setTimeout(() => {
             const getCommentList = document.getElementById("articleComments");
@@ -25,13 +26,7 @@ export default class ArticleView extends React.Component {
 
     }
 
-    getComments = (article_id) => {
-        fetch(`${API_BASE_URL}/comments/${article_id}`)
-            .then(response => response.json())
-            .then((articleComments) => { this.setState({ articleComments }); });
-    }
-
-    removeCommentFromState = (commentId) => {
+      removeCommentFromState = (commentId) => {
         let articleComments = this.state.articleComments.filter(articleComment => articleComment.id !== commentId)
         this.setState({ articleComments })
     }
@@ -42,7 +37,13 @@ export default class ArticleView extends React.Component {
             .catch(this.context.setError)
     }
 
-
+    
+ /* These functions are to retrieve data from the API and fill the state */
+    getComments = (article_id) => {
+        fetch(`${API_BASE_URL}/comments/${article_id}`)
+            .then(response => response.json())
+            .then((articleComments) => { this.setState({ articleComments }); });
+    }
 
     componentDidMount() {
         if (this.props.articleId) {
@@ -65,12 +66,7 @@ export default class ArticleView extends React.Component {
             this.getComments(newProps.articleId);
         }
 
-        /*     else {
-                let currentArticle = this.props.currentArticle 
-                this.setState({ currentArticle: currentArticle });
-                this.setState({ articleComments: [] })
-            } */
-    }
+      }
 
     render() {
         let user = this.state.user;

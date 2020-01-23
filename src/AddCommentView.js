@@ -3,7 +3,7 @@ import ArticleService from './services/article-service';
 
 export default class AddCommentView extends React.Component {
 
-
+/* This function adds the comment to the database and then runs a function to refresh the state with comments and scroll to the newest comment. */
     newComment = event => {
         event.preventDefault();
         const text = event.currentTarget.addComment.value;

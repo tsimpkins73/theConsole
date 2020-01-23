@@ -1,5 +1,4 @@
 import React from 'react'
-//import './CommentView.css'
 
 export default class CommentView extends React.Component {
     constructor(props) {
@@ -11,6 +10,8 @@ export default class CommentView extends React.Component {
         };
     }
 
+
+ /* These functions are to retrieve data from the API and fill the state */    
     setValues = () => {
 
         let users = this.props.users;

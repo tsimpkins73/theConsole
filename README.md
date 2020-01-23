@@ -1,68 +1,104 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## theConsole
 
-## Available Scripts
+https://theconsole-thankful-cassowary.now.sh/
 
-In the project directory, you can run:
+### What is theConsole?
 
-### `npm start`
+theConsole is a blog dedicated to republishing articles useful to and centered around web development. 
+This app allows authorized users to read articles, save favorite articles, and comment on articles.
+The user can also search for articles or peruse articles based on their category.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What built theConsole?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+theConsole client was built using React and vanilla HTML & CSS. It utilizes React-Router and other functions to navigate through content choices and maniupulation.
 
-### `npm test`
+the Console API was built using Node, PostgreSQL, knex, and Express. It also utilizes chai & Mocha as testing methods.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# theConsole API Documentation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### GET https://the-console.herokuapp.com/api/articles
+https://the-console.herokuapp.com/api/articles
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Example Request
+https://the-console.herokuapp.com/api/articles
+curl --location --request GET 'https://the-console.herokuapp.com/api/articles'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### POST https://the-console.herokuapp.com/api/articles/
+https://the-console.herokuapp.com/api/articles/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+BODY raw
+headline: "NEW ARTICLE HEADLINE",
+summary: "NEW ARTICLE summary",
+text: "NEW ARTICLE Text",
+comments: ["NEW ARTICLE  Comment 1",  "NEW ARTICLE  Comment 2"],
+categories: "News",
+image: "NEW ARTICLE",
+url: "www.NEW ARTICLE.com",
+favorite: true
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Example Request
+https://the-console.herokuapp.com/api/articles/
+curl --location --request POST 'https://the-console.herokuapp.com/api/articles/' \
+--data-raw 'headline: "NEW ARTICLE HEADLINE",
+summary: "NEW ARTICLE summary",
+text: "NEW ARTICLE Text",
+comments: ["NEW ARTICLE  Comment 1",  "NEW ARTICLE  Comment 2"],
+categories: "News",
+image: "NEW ARTICLE",
+url: "www.NEW ARTICLE.com",
+favorite: true
+'
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### GET https://the-console.herokuapp.com/api/users
+https://the-console.herokuapp.com/api/users
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Example Request
+https://the-console.herokuapp.com/api/users
+curl --location --request GET 'https://the-console.herokuapp.com/api/users'
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### GET https://the-console.herokuapp.com/api/comments/1
+https://the-console.herokuapp.com/api/comments/1
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Example Request
+https://the-console.herokuapp.com/api/comments/1
+curl --location --request GET 'https://the-console.herokuapp.com/api/comments/1'
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### POST https://the-console.herokuapp.com/api/comments/
+https://the-console.herokuapp.com/api/comments/
+BODY raw
+article_id: 1,
+text: "NEW Comment Text",
+user_id: 1
+authToken: 'bearer-1245'
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Example Request
+https://the-console.herokuapp.com/api/comments/
+curl --location --request POST 'https://the-console.herokuapp.com/api/comments/' \
+--data-raw 'article_id: 1,
+text: "NEW Comment Text",
+user_id: 1
+authToken: '\''bearer-1245'\'''
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### POST https://the-console.herokuapp.com/api/comments/
+https://the-console.herokuapp.com/api/auth/login
+BODY raw
+username: 'test@test.com',
+password: "Password35!",
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Example Request
+https://the-console.herokuapp.com/api/comments/
+curl --location --request POST 'https://the-console.herokuapp.com/api/auth/login' \
+--data-raw 'username: '\''test@test.com'\'',
+password: "Password35!",'
+

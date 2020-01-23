@@ -27,13 +27,9 @@ export default class App extends React.Component {
   }
 
 
+/* APP STATE ADJUSTING FUNCTIONS */
 
-  clearUser = () => {
-    this.setState({ currentUser: {} });
-    localStorage["user"] = 'null';
-  }
-
-
+/* These functions are all button handlers */
   handleFavoriteButton = (article) => {
     article.favorite = !article.favorite;
     this.setState({
@@ -56,7 +52,8 @@ export default class App extends React.Component {
     });
   }
 
-  onLoginSuccess = (username) => {
+/* These functions pertain to logging in and out */
+ onLoginSuccess = (username) => {
     fetch(`${API_BASE_URL}/users/${username}`)
       .then(response => response.json())
       .then((currentUser) => {
@@ -65,6 +62,13 @@ export default class App extends React.Component {
       });
   }
 
+  clearUser = () => {
+    this.setState({ currentUser: {} });
+    localStorage["user"] = 'null';
+  }
+ 
+ 
+ /* These functions are to retrieve data from the API and fill the state */
   getArticlesByCategory = (category) => {
     let selectedCategory = this.state.categories.find(c => (c.name === category))
     let categoryID = selectedCategory.id
@@ -99,6 +103,8 @@ export default class App extends React.Component {
       this.setState({ currentUser: user });
     }
   }
+
+
 
   render() {
     const lpArticle = this.state.articles[0];

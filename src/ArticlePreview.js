@@ -8,7 +8,6 @@ export default class ArticlePreview extends React.Component {
 
     render() {
         let article = this.props.article
-        let handleArticleButton = this.props.handleArticleButton
         return (
             <section id="article">
                 <div id="previewImageContainer"><img id="previewImage" alt={"Headline Image for " + article.headline} src={article.image} /></div>

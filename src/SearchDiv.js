@@ -2,6 +2,8 @@ import React from 'react'
 import './css/Sidebar.css'
 
 export default class SearchDiv extends React.Component {
+  
+  /* This function handles submissions of the search form */
   handleSubmit = (e) => {
     this.props.handleSearchForm(e)
     this.props.history.push('/dashboard')

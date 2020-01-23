@@ -12,6 +12,7 @@ export default class ArticleList extends React.Component {
         };
     }
 
+ /* These functions are to retrieve data from the API and fill the state */    
     fetchData(categoryId) {
         fetch(`${API_BASE_URL}/articles/category/${categoryId}`)
             .then(response => response.json())
@@ -24,6 +25,9 @@ export default class ArticleList extends React.Component {
         this.props.history.push('/dashboard');
     }
 
+
+
+/* These functions are what to run when the component mounts and when it receives new props */    
     componentDidMount() {
         if (this.props.categoryId) {
             this.fetchData(this.props.categoryId);

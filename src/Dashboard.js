@@ -20,12 +20,13 @@ export default class Dashboard extends React.Component {
         };
       }
     
-
+/* This function pertain to logging out */
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         this.props.clearUser();
     }
 
+/* These functions pertain to hiding and reveling navbar menu items on small screens */    
     mobileNavbarReveal = (event) => {
         event.preventDefault();
       this.setState({menuIsActive: !this.state.menuIsActive,});
