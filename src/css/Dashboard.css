@@ -113,23 +113,20 @@ h3 {
 #navLink{
     color: white;
     padding: 2%;
+    text-shadow: 4px 4px 8px rgb(0, 0, 0, .5);
 }
 
 #Header::after {
     width: 100vw;
     content: "";
-    background-image: url("/images/headerImage.jpeg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(/images/headerImage.jpeg);
     background-size: cover;
-    opacity: 0.5;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     position: absolute;
     z-index: -1;
-}
-#Header::before {
-background-image: linear-gradient(rgba(0, 0, 0, 0), #000000);
 }
 
 h1 {
@@ -151,6 +148,7 @@ navbar {
    padding-top: 1%;
    padding-bottom: 1%;
    font-size: 2em;
+   margin-bottom: 2%;
 }
 
 .mobile-navbar {
