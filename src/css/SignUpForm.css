@@ -1,6 +1,8 @@
 @media screen and (max-width: 700px) {
     div.signupButtons {
     display: block;
+    text-align: center;
+    height: auto;
 }
 }
 
