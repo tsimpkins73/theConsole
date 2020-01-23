@@ -48,9 +48,9 @@ grid-template-rows: 1fr 2fr;
 
 .signupButtons{
     display: inline-grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0fr 0fr;
     grid-column-gap: inherit;
-    
+    margin: auto;
 }
 
 .button {

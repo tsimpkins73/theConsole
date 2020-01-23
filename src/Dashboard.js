@@ -53,7 +53,7 @@ export default class Dashboard extends React.Component {
                 <SearchDiv {...this.props} articles={this.props.articles} handleSearchForm={this.props.handleSearchForm} />
                 <h2 className="navbarFavorites" onClick={this.favoritesReveal}>Favorites</h2>
       <NavbarFavoritesDiv isActive={this.state.favoritesIsActive} articles={this.props.articles} handleArticleButton={this.props.handleArticleButton} />
-      <h2 onClick={this.categoriesReveal}>Categories</h2>
+      <h2 onClick={this.categoriesReveal} className="navbarFavorites">Categories</h2>
       <NavbarCategoriesDiv isActive={this.state.categoriesIsActive} categories={this.props.categories} />
             </section>
             <section id="desktop-navbar">

@@ -12,6 +12,10 @@ section#desktop-navbar, section#sidebar, section.hidden {
     display: none;
 }
 
+#navbarFavorites{
+    text-shadow: 4px 4px 8px rgb(0, 0, 0, .5);
+}
+
 section.mobile-navbar {
     padding-top: 5%;
     width: 100%;
