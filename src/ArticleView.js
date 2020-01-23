@@ -17,12 +17,7 @@ export default class ArticleView extends React.Component {
         };
     }
 
-    addComment = comment => {
-        const articleComments = [
-            ...this.state.articleComments,
-            comment
-        ]
-        this.setState({ articleComments })
+    addComment = () => {
         setTimeout(() => {
             const getCommentList = document.getElementById("articleComments");
             getCommentList.scrollIntoView({ block: "end" });
@@ -93,7 +88,7 @@ export default class ArticleView extends React.Component {
                         <button onClick={this.props.handleFavoriteButton}>Favorite</button>
                         <Link to={"/dashboard/article/" + article.id + "/comment"}><button>Add Comment</button></Link>
                     </div>
-                    <Route exact path={`/dashboard/article/${article.id}/comment`} render={() => <AddCommentView addComment={this.addComment} article={this.props.article} articleId={this.props.article.id} getComments={this.getComments} user={user} currentUser={this.props.currentUser} />} />
+                    <Route exact path={`/dashboard/article/${article.id}/comment`} render={() => <AddCommentView addComment={this.addComment} getComments={this.getComments} article={this.props.article} articleId={this.props.article.id} getComments={this.getComments} user={user} currentUser={this.props.currentUser} />} />
                     <CommentsList articleId={this.props.articleId} users={this.props.users} articleComments={this.state.articleComments} currentUser={this.props.currentUser} deleteComment={this.deleteComment} />
                 </section>
             </div >
