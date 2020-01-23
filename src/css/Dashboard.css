@@ -127,9 +127,10 @@ h3 {
     right: 0;
     position: absolute;
     z-index: -1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), #000000);
 }
-
+#Header::before {
+background-image: linear-gradient(rgba(0, 0, 0, 0), #000000);
+}
 
 h1 {
     height: auto;
